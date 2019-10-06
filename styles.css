@@ -95,7 +95,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
         background: #fff;
         padding: none;
         display: inline-block;
-        font-size: 8vw;
+        font-size: 5vw;
         text-align: center;
     }
 }
