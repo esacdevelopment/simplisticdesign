@@ -97,6 +97,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
         display: inline-block;
         font-size: 5vw;
         text-align: center;
+        background: transparent;
     }
     .sd-nav button.sd-show-options {
         display: inline-block;
