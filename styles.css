@@ -83,6 +83,10 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     float: right;
     font-family: 'Roboto';
     display: none;
+    background: transparent;
+}
+.sd-nav button.sd-show-options i {
+    transition: all 0.2s ease;
 }
 /* Customize navbar for mobile or small devices */
 @media screen and (max-width: 720px) {
@@ -101,6 +105,15 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     }
     .sd-nav button.sd-show-options {
         display: inline-block;
+    }
+    .sd-page-header {
+        font-size: 7vw!important;
+    }
+    .wrapper[hasAside] aside {
+        width: 40%!important;
+    }
+    .wrapper[hasAside=true] article {
+        width: 54%!important;
     }
 }
 /* Search Bar */
@@ -232,6 +245,7 @@ body.sd-dark-theme .sd-nav button:disabled, .sd-nav.transparent button:disabled 
 }
 .wrapper article {
     color: #555;
+    font-family: 'Roboto', sans-serif;
 }
 .wrapper[hasAside=true] article {
     width: 75%;
@@ -242,6 +256,10 @@ body.sd-dark-theme .sd-nav button:disabled, .sd-nav.transparent button:disabled 
     width: 20%;
     color: #555;
     float: right;
+    font-family: 'Roboto', sans-serif;
+}
+.wrapper aside a {
+    word-wrap: break-word;
 }
 .wrapper article h2 {
     color: #333;

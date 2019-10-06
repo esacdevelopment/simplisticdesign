@@ -14,6 +14,14 @@
         .sd-page-header {
             background: url('images/headerback.png');
         }
+        @media screen and (max-width: 720px) {
+            .sd-page-header {
+                background: url('images/headerback_no_words.png');
+            }
+            .sd-page-header:before {
+                content: 'About Simplistic Design';
+            }
+        }
     </style>
 </head>
 <body>
