@@ -92,7 +92,6 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     }
     .sd-nav a.sd-nav-co {
         width: 60%;
-        background: #fff;
         padding: none;
         display: inline-block;
         font-size: 5vw;
