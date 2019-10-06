@@ -97,6 +97,9 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
         font-size: 5vw;
         text-align: center;
     }
+    .sd-nav button.sd-show-options {
+        display: inline-block;
+    }
 }
 /* Search Bar */
 
