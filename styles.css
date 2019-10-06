@@ -1,0 +1,219 @@
+/* Styles for the entire page, also includes "*" selectors and @imports */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Be+Vietnam:300,400,500,600&display=swap');
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+body.sd-dark {
+    background: #333;
+}
+a {
+    color: #2c67e3;
+}
+* {
+    font-family: 'Roboto';
+}
+/* Begin Navigation Bar Styles */
+
+.sd-nav {
+    height: 10vh;
+    background: #fff;
+    display: block;
+    width: 100vw;
+    position: fixed;
+    width: calc(100% - 32px);
+    padding-left: 16px;
+    padding-right: 16px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+}
+.sd-nav a.sd-nav-co {
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: 1.5vw;
+    color: #333;
+    text-decoration: none;
+    line-height: 10vh;
+    margin-right: 4vw;
+    vertical-align: top;
+}
+.sd-nav button {
+    height: 100%;
+    background: transparent;
+    color: #555;
+    border: none;
+    min-width: 7vw;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.sd-nav button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+.sd-nav button:active {
+    background: rgba(0, 0, 0, 0.1);
+}
+/* Search Bar */
+
+.sd-nav span.sd-search-wrapper {
+    height: 100%;
+    float: right;
+    line-height: 10vh;
+}
+.sd-nav span.sd-search-wrapper input.sd-nav-search {
+    height: 5vh;
+    width: 4vw;
+    padding-left: 16px;
+    /* text-shadow: none; */
+    padding-right: 16px;
+    color: #333;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-family: 'Roboto';
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: none;
+    background: rgba(255, 255, 255, 0.4);
+}
+.sd-nav span.sd-search-wrapper input.sd-nav-search:focus {
+    border: 1px solid #20add844;
+    width: 15vw;
+    border-right: none;
+}
+.sd-nav.transparent span.sd-search-wrapper input.sd-nav-search {
+    background: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    border: none;
+}
+.sd-nav.transparent span.sd-search-wrapper input.sd-nav-search::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+
+}
+.sd-nav.transparent span.sd-search-wrapper input.sd-nav-search:focus {
+    box-shadow: none;
+    border: none;
+    width: 15vw;
+}
+.sd-nav span.sd-search-wrapper[hasButton=true] input.sd-nav-search {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.sd-nav span.sd-search-wrapper button.sd-nav-search-button {
+    height: calc(5vh + 4px);
+    background: rgba(255, 255, 255, 0.4);
+    min-width: 1vw!important;
+    width: 2vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 4px;
+    padding-left: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: none;
+}
+.sd-nav.transparent span.sd-search-wrapper button.sd-nav-search-button {
+    border: none;
+    height: calc(5vh + 2px);
+}
+.sd-nav span.sd-search-wrapper button.sd-nav-search-button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+/* Dark NavBar Styles */
+/* Search */
+body.sd-dark-theme .sd-nav:not(.transparent) span.sd-search-wrapper input.sd-nav-search {
+    color: #fff;
+}
+body.sd-dark-theme .sd-nav:not(.transparent) span.sd-search-wrapper input.sd-nav-search::-webkit-input-placeholder {
+    color: #ddd;
+}
+body.sd-dark-theme .sd-nav {
+    background: #333;
+    color: #fff;
+}
+body.sd-dark-theme .sd-nav a.sd-nav-co {
+    color: #fff;
+}
+body.sd-dark-theme .sd-nav button {
+    color: #ddd;
+}
+body.sd-dark-theme .sd-nav button:hover, .sd-nav.transparent button:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+body.sd-dark-theme .sd-nav button:active, .sd-nav.transparent button:active {
+    background: rgba(255, 255, 255, 0.1);
+}
+.sd-nav.transparent {
+    background: transparent!important;
+    box-shadow: none;
+}
+.sd-nav.transparent a.sd-nav-co {
+    color: #fff!important;
+}
+.sd-nav.transparent button {
+    color: #fefefe!important;
+}
+.sd-nav.transparent * {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.sd-nav button:disabled {
+    box-shadow: inset 0px -2px 0px #555;
+}
+body.sd-dark-theme .sd-nav button:disabled, .sd-nav.transparent button:disabled {
+    box-shadow: inset 0px -2px 0px #fff;
+}
+/* Header (page and section) */
+.sd-page-header {
+    height: 100vh;
+    padding-left: 5vw;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    line-height: 100vh;
+    font-size: 3vw;
+    background: #2c67e3;
+    background-size: cover;
+}
+
+/* Article and Aside elements */
+/* Light Styles (Default) */
+.wrapper {
+    background: #fff;
+    padding: 16px;
+    overflow: auto;
+}
+.wrapper[hasAside=true] article {
+    width: 75%;
+    float: left;
+    color: #555;
+}
+.wrapper[hasAside=true] aside {
+    width: 20%;
+    color: #555;
+    float: right;
+}
+.wrapper article h2 {
+    color: #333;
+    font-family: "Be Vietnam", sans-serif;
+}
+.wrapper aside h3 {
+    font-family: 'Be Vietnam', sans-serif;
+}
+body.sd-dark-theme .wrapper {
+    background: #333;
+}
+body.sd-dark-theme .wrapper article {
+    color: #ddd;
+}
+body.sd-dark-theme .wrapper article h2 {
+    color: #fff;
+}
+body.sd-dark-theme .wrapper aside {
+    color: #bbb;
+}
+body.sd-dark-theme .wrapper aside h3 {
+    color: #eee;
+}
