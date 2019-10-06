@@ -13,13 +13,30 @@ body.sd-dark {
 a {
     color: #2c67e3;
 }
-* {
+*:not(code), *:not(code *) {
     font-family: 'Roboto';
+}
+*::-webkit-scrollbar {
+    background: #fff;
+    width: 5px;
+    border-radius: 5px;
+}
+*::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+body.sd-dark-theme *::-webkit-scrollbar {
+    background: rgba(255, 255, 255, 0.5);
+}
+body.sd-dark-theme *::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
 }
 /* Begin Navigation Bar Styles */
 
 .sd-nav {
-    height: 10vh;
+    height: 75px;
+    max-height: 75px;
     background: #fff;
     display: block;
     width: 100vw;
@@ -35,7 +52,7 @@ a {
     font-size: 1.5vw;
     color: #333;
     text-decoration: none;
-    line-height: 10vh;
+    line-height: 75px;
     margin-right: 4vw;
     vertical-align: top;
 }
@@ -57,6 +74,30 @@ a {
 }
 .sd-nav button:active {
     background: rgba(0, 0, 0, 0.1);
+}
+.sd-nav button.sd-show-options {
+    height: 100%;
+    width: 30%;
+    border: none;
+    outline: none;
+    float: right;
+    font-family: 'Roboto';
+}
+/* Customize navbar for mobile or small devices */
+@media screen and (max-width: 720px) {
+    .sd-nav {
+        overflow: hidden;
+        width: 100%;
+        padding: 0px;
+    }
+    .sd-nav a.sd-nav-co {
+        width: 60%;
+        background: #fff;
+        padding: none;
+        display: inline-block;
+        font-size: 8vw;
+        text-align: center;
+    }
 }
 /* Search Bar */
 
@@ -185,6 +226,9 @@ body.sd-dark-theme .sd-nav button:disabled, .sd-nav.transparent button:disabled 
     padding: 16px;
     overflow: auto;
 }
+.wrapper article {
+    color: #555;
+}
 .wrapper[hasAside=true] article {
     width: 75%;
     float: left;
@@ -216,4 +260,69 @@ body.sd-dark-theme .wrapper aside {
 }
 body.sd-dark-theme .wrapper aside h3 {
     color: #eee;
+}
+/* Cards and iframes */
+div.sd-card {
+    min-height: 100px;
+    min-width: 100px;
+    width: calc(50vh - 16px);
+    height: calc(50vh - 16px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    /* padding: 16px; */
+    background: #fff;
+    color: #555;
+    overflow: auto;
+}
+body.sd-dark-theme div.sd-card {
+    background: #333;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: #ddd;
+}
+div.sd-card div.sd-card-header {
+    background: #eee;
+    border-radius: 5px;
+    padding: 16px;
+    font-family: 'Be Vietnam';
+    font-size: 1.4em;
+    color: #555;
+}
+body.sd-dark-theme div.sd-card-header {
+    background: #555;
+    color: #fff;
+}
+div.sd-card p {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: 'Roboto';
+    text-indent: 8px;
+}
+div.sd-card::-webkit-scrollbar {
+    background: #fff;
+    width: 5px;
+    border-radius: 5px;
+}
+div.sd-card::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+body.sd-dark-theme div.sd-card::-webkit-scrollbar {
+    background: rgba(255, 255, 255, 0.5);
+}
+body.sd-dark-theme div.sd-card::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+}
+/* begin iframe styles */
+iframe.sd-iframe {
+    border: none;
+    width: 50vh;
+    height: 50vh;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: block;
+}
+iframe.sd-iframe.sd-small {
+    height: 30vh;
+    width: 30vh;
 }

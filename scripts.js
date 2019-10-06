@@ -26,3 +26,33 @@ $(document).on('click', '.sd-nav button', function() {
         window.location = $(this).data('url');
     }
 });
+$(document).ready(function() {
+    $(".sd-nav").prepend('<button class="sd-show-options"><i class="fa fa-chevron-right"></i></button>');
+}).on('click', '.sd-show-options', function() {
+    var buttoncount = 0;
+    $(".sd-nav-co, .sd-show-options").fadeOut(100);
+    $(".sd-nav button:not(.sd-show-options)").each(function() {
+        buttoncount++;
+        switch ($(this).html().trim()) {
+            case "Home":
+                $(this).html('<i class="fa fa-home"></i>');
+                break;
+            case "Download":
+                $(this).html('<i class="fa fa-download"></i>');
+                break;
+            case "About":
+                $(this).html('<i class="fa fa-info-circle"></i>');
+                break;
+            case "Creator":
+                $(this).html('<i class="fa fa-user-circle"></i>');
+                break;
+            case "Contact":
+                $(this).html('<i class="fa fa-phone"></i>');
+                break;
+            case "Examples":
+                $(this).html('<i class="fa fa-ellipsis-v"></i>');
+                break;
+        }
+    });
+    $(".sd-nav button").css('width', 'calc(99vw / ' + buttoncount + ' - 4px)');
+});
