@@ -82,6 +82,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     outline: none;
     float: right;
     font-family: 'Roboto';
+    display: none;
 }
 /* Customize navbar for mobile or small devices */
 @media screen and (max-width: 720px) {
