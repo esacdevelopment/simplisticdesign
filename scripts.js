@@ -1,3 +1,19 @@
+// Define all the errors in the page
+var noicon = false;
+
+// Output all SD errors into the console.
+$(document).ready(function() {
+    $(".sd-nav button").each(function() {
+        noicon = false;
+        if ($(this).data("icon") == undefined) {
+            noicon = true;
+        };
+        if (noicon === true) {
+            console.error("SD Error: No property \"data-icon\" on a button element in the navigation bar");
+        }
+    });
+});
+
 $(document).ready(function() {
     // Determine the navbar's background:
     var scrollHeight = $(document).scrollTop();
@@ -38,26 +54,7 @@ $(document).ready(function() {
     if (buttonshow == false) {
         $(".sd-nav button").each(function() {
                 buttoncount++;
-                switch ($(this).html().trim()) {
-                    case "Home":
-                        $(this).html('<i class="fa fa-home"></i>');
-                        break;
-                    case "Download":
-                        $(this).html('<i class="fa fa-download"></i>');
-                        break;
-                    case "About":
-                        $(this).html('<i class="fa fa-info"></i>');
-                        break;
-                    case "Creator":
-                        $(this).html('<i class="fa fa-user"></i>');
-                        break;
-                    case "Contact":
-                        $(this).html('<i class="fa fa-phone"></i>');
-                        break;
-                    case "Examples":
-                        $(this).html('<i class="fa fa-ellipsis-v"></i>');
-                        break;
-                }
+                $(this).html("<i class='fa fa-" + $(this).data('icon') + "'></i>");
             buttonshow = true;
             $(".sd-nav button.sd-show-options i").css("transform", 'rotate(180deg)');
         });

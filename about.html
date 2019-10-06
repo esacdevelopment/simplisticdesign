@@ -12,36 +12,30 @@
     <title>Simplistic Design - About</title>
     <style>
         .sd-page-header {
-            background: url('images/headerback.png');
-        }
-        @media screen and (max-width: 720px) {
-            .sd-page-header {
-                background: url('images/headerback_no_words.png');
-            }
-            .sd-page-header:before {
-                content: 'About Simplistic Design';
-            }
+            background: url('images/headerback_no_words.png');
         }
     </style>
 </head>
 <body>
     <nav class="sd-nav show-header">
         <a class="sd-nav-co" href="index.html">Simplistic Design</a>
-        <button data-url="index.html">
+        <button data-url="index.html" data-icon="home">
             Home
-        </button><button data-url="download.html">
+        </button><button data-url="download.html" data-icon="download">
             Download
-        </button><button data-url="about.html" disabled>
+        </button><button data-url="about.html" data-icon="info">
             About
-        </button><button data-url="creator.html">
+        </button><button data-url="creator.html" data-icon="user">
             Creator
-        </button><button>
+        </button><button data-icon="phone">
             Contact
-        </button><button data-url="examples.html">
+        </button><button data-url="examples.html" data-icon="ellipsis-h">
             Examples
         </button>
     </nav>
-    <header class="sd-page-header"></header>
+    <header class="sd-page-header">
+        About Simplistic Design
+    </header>
     <div class="wrapper" hasAside="true">
         <article>
             <h2>What is Simplistic Design?</h2>
