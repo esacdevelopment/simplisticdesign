@@ -56,9 +56,9 @@ $(document).ready(function() {
                 buttoncount++;
                 $(this).data('originaltext', $(this).html());
                 $(this).html("<i class='fa fa-" + $(this).data('icon') + "'></i>");
-            buttonshow = true;
-            $(".sd-nav button.sd-show-options").html('<i class="fa fa-chevron-left"></i>');
         });
+        buttonshow = true;
+        $(".sd-nav button.sd-show-options").html('<i class="fa fa-chevron-left"></i>');
         } else {
             $(".sd-nav button:not(.sd-show-options)").fadeOut(1);
             $(".sd-nav .sd-nav-co").fadeIn(100);
