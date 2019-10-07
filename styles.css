@@ -80,6 +80,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     width: 30%;
     border: none;
     outline: none;
+    opacity: 1;
     float: right;
     font-family: 'Roboto';
     display: none;
@@ -233,6 +234,8 @@ body.sd-dark-theme .sd-nav button:disabled, .sd-nav.transparent button:disabled 
     line-height: 100vh;
     font-size: 3vw;
     background: #2c67e3;
+    transition: all 0.0s linear;
+    -webkit-user-select: none;
     background-size: cover;
 }
 
@@ -283,7 +286,7 @@ body.sd-dark-theme .wrapper aside {
 body.sd-dark-theme .wrapper aside h3 {
     color: #eee;
 }
-/* Cards and iframes */
+/* Cards */
 div.sd-card {
     min-height: 100px;
     min-width: 100px;
@@ -334,17 +337,4 @@ body.sd-dark-theme div.sd-card::-webkit-scrollbar {
 body.sd-dark-theme div.sd-card::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
-}
-/* begin iframe styles */
-iframe.sd-iframe {
-    border: none;
-    width: 50vh;
-    height: 50vh;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    display: block;
-}
-iframe.sd-iframe.sd-small {
-    height: 30vh;
-    width: 30vh;
 }
