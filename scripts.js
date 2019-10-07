@@ -51,7 +51,7 @@ $(document).ready(function() {
     var buttoncount = 0;
     $(".sd-nav-co").fadeOut(100);
     $(".sd-nav button:not(.sd-show-options)").fadeIn(1);
-    if (buttonshow == false) {
+    if (buttonshow === false) {
         $(".sd-nav button:not(.sd-show-options)").each(function() {
                 buttoncount++;
                 $(this).data('originaltext', $(this).html());
