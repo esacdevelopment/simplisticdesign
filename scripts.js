@@ -57,12 +57,12 @@ $(document).ready(function() {
                 $(this).data('originaltext', $(this).html());
                 $(this).html("<i class='fa fa-" + $(this).data('icon') + "'></i>");
             buttonshow = true;
-            $(".sd-nav button.sd-show-options i").css("transform", 'rotate(180deg)');
+            $(".sd-nav button.sd-show-options").html('<i class="fa fa-chevron-left"></i>');
         });
         } else {
             $(".sd-nav button:not(.sd-show-options)").fadeOut(1);
             $(".sd-nav .sd-nav-co").fadeIn(100);
-            $(".sd-nav button.sd-show-options i").css('transform', 'rotate(0deg)');
+            $(".sd-nav button.sd-show-options").html('<i class="fa fa-chevron-right"></i>');
             $(".sd-nav button:not(.sd-show-options)").each(function() {
                 $(this).html($(this).data('originaltext'))
                 buttonshow = false;
