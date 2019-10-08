@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600');
 @import url('https://fonts.googleapis.com/css?family=Be+Vietnam:300,400,500,600&display=swap');
 
+/* Align text styles */
+.sd-align-right {
+    float: right;
+}
+
 body, html {
     height: 100%;
     width: 100%;
@@ -137,13 +142,11 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     font-family: 'Roboto';
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-right: none;
     background: rgba(255, 255, 255, 0.4);
 }
 .sd-nav span.sd-search-wrapper input.sd-nav-search:focus {
     border: 1px solid #20add844;
     width: 15vw;
-    border-right: none;
 }
 .sd-nav.transparent span.sd-search-wrapper input.sd-nav-search {
     background: rgba(255, 255, 255, 0.4);
@@ -237,6 +240,7 @@ body.sd-dark-theme .sd-nav button:disabled, .sd-nav.transparent button:disabled 
     transition: all 0.0s linear;
     -webkit-user-select: none;
     background-size: cover;
+    font-family: 'Be Vietnam', sans-serif;
 }
 
 /* Article and Aside elements */
@@ -286,6 +290,9 @@ body.sd-dark-theme .wrapper aside {
 body.sd-dark-theme .wrapper aside h3 {
     color: #eee;
 }
+body.sd-dark-theme .wrapper a {
+    color: #42cffa;
+}
 /* Cards */
 div.sd-card {
     min-height: 100px;
@@ -297,6 +304,7 @@ div.sd-card {
     /* padding: 16px; */
     background: #fff;
     color: #555;
+    position: relative;
     overflow: auto;
 }
 body.sd-dark-theme div.sd-card {
@@ -337,4 +345,19 @@ body.sd-dark-theme div.sd-card::-webkit-scrollbar {
 body.sd-dark-theme div.sd-card::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
+}
+div.sd-card div.sd-card-footer {
+    background: #eee;
+    padding: 8px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px;
+    width: calc(100% - 16px);
+}
+body.sd-dark-theme div.sd-card div.sd-card-footer {
+    background: #555;
+}
+/* Page Footer */
+footer.sd-footer {
+    background: #eee;
 }
