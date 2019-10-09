@@ -74,8 +74,22 @@ $(document).ready(function () {
         $(".sd-nav button.sd-show-options i").css('transform', 'rotate(180deg)');
         $(".sd-nav button:not(.sd-show-options)").css('width', 'calc(100vw / (' + buttoncount + ')');
     } else {
-        hidesidebarmobile();
-        function waitasec() {
+        if ($(".sd-side-nav").length) {
+            hidesidebarmobile();
+            function waitasec() {
+                $(".sd-nav a.sd-nav-co").css('line-height', '10vh');
+                $(".sd-nav").css('max-height', '10vh').css('height', '10vh').removeClass('js-nav-open').children('button').css('height', '100%');
+                $(".sd-nav button:not(.sd-show-options)").css('display', 'none');
+                $(".sd-nav .sd-nav-co").fadeIn(100);
+                $(".sd-nav button.sd-show-options i").css('transform', 'rotate(0deg)');
+                $(".sd-nav button:not(.sd-show-options)").each(function () {
+                    $(this).html($(this).data('originaltext'))
+                    buttonshow = false;
+                });
+                $(".sd-nav button.sd-show-options").css('width', '30%').css('height', '100%');
+            }
+            setTimeout(waitasec, 300);
+        } else {
             $(".sd-nav a.sd-nav-co").css('line-height', '10vh');
             $(".sd-nav").css('max-height', '10vh').css('height', '10vh').removeClass('js-nav-open').children('button').css('height', '100%');
             $(".sd-nav button:not(.sd-show-options)").css('display', 'none');
@@ -87,7 +101,6 @@ $(document).ready(function () {
             });
             $(".sd-nav button.sd-show-options").css('width', '30%').css('height', '100%');
         }
-        setTimeout(waitasec, 300);
     }
     $(".sd-nav").css('width', '100%');
 });
@@ -116,19 +129,15 @@ function showsidebarmobile() {
     $(".sd-side-nav").css('width', '100vw')
         .css('height', '75vh')
         .css('background', '#dddddd')
-        .css('top', '-100vh')
-        .css('z-index', '9999');
+        .css('top', '25vh')
+        .css('z-index', '9999')
     function iminside() {
-        $(".sd-side-nav").css('left', '0');
+        $(".sd-side-nav").css('left', '0vw');
     }
     setTimeout(iminside, 200);
-    function anotherone() {
-        $(".sd-side-nav").css('top', '25vh');
-    }
-    setTimeout(anotherone, 400);
 }
 function hidesidebarmobile() {
-    $(".sd-side-nav").css('top', '-1000vh');
+    $(".sd-side-nav").css('top', '-102vh');
     function waitformetohide() {
         $(".sd-side-nav").css('left', '-100vw')
             .css('height', '100vh')
