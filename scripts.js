@@ -50,8 +50,8 @@ $(document).ready(function () {
 }).on('click', '.sd-show-options', function () {
     var buttoncount = 0;
     // $(".sd-nav-co").fadeOut(100);
-    $(".sd-nav button, .sd-nav a.sd-nav-co").css('height', '50%');
-    $(".sd-nav").css('max-height', '25vh').css('height', '25vh').addClass('js-nav-open').children('.sd-show-options').css('height', '36.6%');
+    $(".sd-nav button, .sd-nav a.sd-nav-co").css('height', '12.5vh');
+    $(".sd-nav").css('max-height', '25vh').css('height', '25vh').addClass('js-nav-open').children('.sd-show-options').css('height', '12.5vh');
     $(".sd-nav button").css('display', 'inline-block');
     if (buttonshow === false) {
         $(".sd-nav button:not(.sd-show-options)").each(function () {
