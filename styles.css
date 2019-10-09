@@ -44,6 +44,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     max-height: 75px;
     background: #fff;
     display: block;
+    z-index: 10000;
     width: 100vw;
     position: fixed;
     width: calc(100% - 32px);
@@ -51,6 +52,10 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     padding-right: 16px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
     transition: all 0.2s ease;
+}
+.sd-nav .sd-nav-co img {
+    height: 100%;
+    width: 150px;
 }
 .sd-nav a.sd-nav-co {
     font-family: 'Be Vietnam', sans-serif;
@@ -61,7 +66,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     margin-right: 4vw;
     vertical-align: top;
 }
-.sd-nav button {
+.sd-nav button:not(.sd-show-side-nav) {
     height: 100%;
     background: transparent;
     color: #555;
@@ -73,6 +78,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    padding: none;
 }
 .sd-nav button:hover {
     background: rgba(0, 0, 0, 0.05);
@@ -90,9 +96,10 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     font-family: 'Roboto';
     display: none;
     background: transparent;
+    padding: none;
 }
 .sd-nav button.sd-show-options i {
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 /* Customize navbar for mobile or small devices */
 @media screen and (max-width: 720px) {
@@ -120,6 +127,9 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     }
     .wrapper[hasAside=true] article {
         width: 54%!important;
+    }
+    .sd-nav button.sd-show-side-nav {
+        display: none;
     }
 }
 /* Search Bar */
@@ -214,10 +224,10 @@ body.sd-dark-theme .sd-nav button:active, .sd-nav.transparent button:active {
     box-shadow: none;
 }
 .sd-nav.transparent a.sd-nav-co {
-    color: #fff!important;
+    color: #fff;
 }
 .sd-nav.transparent button {
-    color: #fefefe!important;
+    color: #fefefe;
 }
 .sd-nav.transparent * {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -305,7 +315,13 @@ div.sd-card {
     background: #fff;
     color: #555;
     position: relative;
-    overflow: auto;
+    overflow: hidden;
+}
+@media screen and (max-width: 720px) {
+    div.sd-card {
+        height: calc(75vw - 16px);
+        width: calc(75vw - 16px);
+    }
 }
 body.sd-dark-theme div.sd-card {
     background: #333;
@@ -329,22 +345,7 @@ div.sd-card p {
     padding-right: 8px;
     font-family: 'Roboto';
     text-indent: 8px;
-}
-div.sd-card::-webkit-scrollbar {
-    background: #fff;
-    width: 5px;
-    border-radius: 5px;
-}
-div.sd-card::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-}
-body.sd-dark-theme div.sd-card::-webkit-scrollbar {
-    background: rgba(255, 255, 255, 0.5);
-}
-body.sd-dark-theme div.sd-card::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 5px;
+    overflow: auto;
 }
 div.sd-card div.sd-card-footer {
     background: #eee;
@@ -360,4 +361,76 @@ body.sd-dark-theme div.sd-card div.sd-card-footer {
 /* Page Footer */
 footer.sd-footer {
     background: #eee;
+    position: absolute;
+    left: 0;
+    padding: 8px;
+}
+body.sd-dark-theme footer.sd-footer {
+    color: #eee;
+    background: #555;
+}
+/* This is also part of the navigation styles */
+.sd-nav.js-nav-open {
+    background: #fff!important;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.sd-nav.js-nav-open button, .sd-nav.js-nav-open a {
+    color: #333!important;
+    text-shadow: none!important;
+}
+.sd-nav.js-nav-open button:disabled {
+    box-shadow: 0px -2px 0px #333 inset;
+}
+/* Side Nav Bar */
+.sd-side-nav {
+    height: 100vh;
+    position: fixed;
+    width: 20vw;
+    background: #fff;
+    top: 0;
+    left: -100vw;
+    z-index: 100000;
+}
+.sd-side-nav a.sd-co {
+    height: 8vh;
+    width: 20vw;
+    color: #333;
+    text-decoration: none;
+    font-family: 'Be Vietnam';
+    text-align: center;
+    display: inline-block;
+    line-height: 8vh;
+    font-size: 1.5vw;
+}
+.sd-side-nav button {
+    height: 8vh;
+    width: 20vw;
+    background: transparent;
+    color: #333;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.sd-side-nav button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+.sd-side-nav button:active {
+    background: rgba(0, 0, 0, 0.1);
+}
+.sd-show-side-nav {
+    background: transparent;
+    color: #333;
+    height: 75px;
+    width: 75px;
+    vertical-align: top;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 16px;
 }

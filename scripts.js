@@ -3,7 +3,7 @@ var noicon = false;
 
 // Output all SD errors into the console.
 $(document).ready(function () {
-    $(".sd-nav button").each(function () {
+    $(".sd-nav button:not(.sd-show-side-nav)").each(function () {
         noicon = false;
         if ($(this).data("icon") == undefined) {
             noicon = true;
@@ -39,20 +39,22 @@ $(document).scroll(function (e) {
         $(".sd-page-header").css('background-position', '0px ' + a + 'px');
     }
 });
-$(document).on('click', '.sd-nav button', function () {
+$(document).on('click', '.sd-nav button, .sd-side-nav button', function () {
     if ($(this).data("url") !== undefined) {
         window.location = $(this).data('url');
     }
 });
 var buttonshow = false;
 $(document).ready(function () {
-    $(".sd-nav").prepend('<button class="sd-show-options"><i class="fa fa-chevron-right"></i></button>');
+    $(".sd-nav").prepend('<button class="sd-show-options"><i class="fa fa-chevron-down"></i></button>');
 }).on('click', '.sd-show-options', function () {
     var buttoncount = 0;
-    $(".sd-nav-co").fadeOut(100);
+    // $(".sd-nav-co").fadeOut(100);
+    $(".sd-nav button, .sd-nav a.sd-nav-co").css('height', '50%');
+    $(".sd-nav").css('max-height', '25vh').css('height', '25vh').addClass('js-nav-open').children('.sd-show-options').css('height', '36.6%');
     $(".sd-nav button").css('display', 'inline-block');
     if (buttonshow === false) {
-        $(".sd-nav button").each(function () {
+        $(".sd-nav button:not(.sd-show-options)").each(function () {
             buttoncount++;
             $(this).data('originaltext', $(this).html());
             if (!$(this).hasClass("sd-show-options")) {
@@ -61,8 +63,9 @@ $(document).ready(function () {
         });
         buttonshow = true;
         $(".sd-nav button.sd-show-options i").css('transform', 'rotate(180deg)');
-        $(".sd-nav button").css('width', 'calc(100vw / (' + buttoncount + ')');
+        $(".sd-nav button:not(.sd-show-options)").css('width', 'calc(100vw / (' + buttoncount + ')');
     } else {
+        $(".sd-nav").css('max-height', '10vh').css('height', '10vh').removeClass('js-nav-open').children('button').css('height', '100%');
         $(".sd-nav button:not(.sd-show-options)").css('display', 'none');
         $(".sd-nav .sd-nav-co").fadeIn(100);
         $(".sd-nav button.sd-show-options i").css('transform', 'rotate(0deg)');
@@ -82,5 +85,10 @@ $(window).resize(function () {
     } else {
         $(".sd-nav button").css('display', 'none');
         $(".sd-nav button.sd-show-options").fadeIn(100);
+    }
+});
+$(document).on('click', '.sd-side-nav-wrapper', function () {
+    if (!$('.sd-side-nav').hasClass('open')) {
+        // Close the navbar
     }
 });
