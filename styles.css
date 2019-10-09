@@ -362,8 +362,6 @@ body.sd-dark-theme div.sd-card div.sd-card-footer {
 /* Page Footer */
 footer.sd-footer {
     background: #eee;
-    position: absolute;
-    left: 0;
     padding: 8px;
 }
 body.sd-dark-theme footer.sd-footer {
@@ -385,16 +383,18 @@ body.sd-dark-theme footer.sd-footer {
 /* Side Nav Bar */
 .sd-side-nav {
     height: 100vh;
+    padding-top: 16px;
     position: fixed;
-    width: 20vw;
+    width: 25vw;
     background: #fff;
     top: 0;
     left: -100vw;
     z-index: 100000;
+    transition: all 0.3s ease;
 }
 .sd-side-nav a.sd-co {
     height: 8vh;
-    width: 20vw;
+    width: 25vw;
     color: #333;
     text-decoration: none;
     font-family: 'Be Vietnam';
@@ -405,7 +405,7 @@ body.sd-dark-theme footer.sd-footer {
 }
 .sd-side-nav button {
     height: 8vh;
-    width: 20vw;
+    width: 25vw;
     background: transparent;
     color: #333;
     font-family: 'Roboto';
@@ -435,4 +435,14 @@ body.sd-dark-theme footer.sd-footer {
     transition: all 0.3s ease;
     margin-right: 16px;
     display: inline-block;
+}
+/* Side Nav Mobile Styles */
+@media screen and (max-width: 720px) {
+    .sd-side-nav a.sd-co {
+        display: none;
+    }
+    .sd-side-nav button {
+        width: 100vw;
+        font-size: 4.5vw;
+    }
 }
