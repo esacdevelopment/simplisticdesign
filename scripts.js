@@ -50,8 +50,9 @@ $(document).ready(function () {
 }).on('click', '.sd-show-options', function () {
     var buttoncount = 0;
     // $(".sd-nav-co").fadeOut(100);
-    $(".sd-nav button, .sd-nav a.sd-nav-co").css('height', '12.5vh');
-    $(".sd-nav").css('max-height', '25vh').css('height', '25vh').addClass('js-nav-open').children('.sd-show-options').css('height', '12.5vh');
+    $(".sd-nav button, .sd-nav a.sd-nav-co").css('height', '50%');
+    $(".sd-nav a.sd-nav-co").css('line-height', '12.5vh');
+    $(".sd-nav").css('max-height', '25vh').css('height', '25vh').addClass('js-nav-open').children('.sd-show-options').css('height', '50%');
     $(".sd-nav button").css('display', 'inline-block');
     if (buttonshow === false) {
         $(".sd-nav button:not(.sd-show-options)").each(function () {
@@ -65,6 +66,7 @@ $(document).ready(function () {
         $(".sd-nav button.sd-show-options i").css('transform', 'rotate(180deg)');
         $(".sd-nav button:not(.sd-show-options)").css('width', 'calc(100vw / (' + buttoncount + ')');
     } else {
+        $(".sd-nav a.sd-nav-co").css('line-height', '10vh');
         $(".sd-nav").css('max-height', '10vh').css('height', '10vh').removeClass('js-nav-open').children('button').css('height', '100%');
         $(".sd-nav button:not(.sd-show-options)").css('display', 'none');
         $(".sd-nav .sd-nav-co").fadeIn(100);
@@ -73,7 +75,7 @@ $(document).ready(function () {
             $(this).html($(this).data('originaltext'))
             buttonshow = false;
         });
-        $(".sd-nav button.sd-show-options").css('width', '30%');
+        $(".sd-nav button.sd-show-options").css('width', '30%').css('height', '100%');
     }
     $(".sd-nav").css('width', '100%');
 });

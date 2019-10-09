@@ -65,6 +65,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     line-height: 75px;
     margin-right: 4vw;
     vertical-align: top;
+    transition: all 0.3s ease;
 }
 .sd-nav button:not(.sd-show-side-nav) {
     height: 100%;
@@ -128,8 +129,8 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     .wrapper[hasAside=true] article {
         width: 54%!important;
     }
-    .sd-nav button.sd-show-side-nav {
-        display: none;
+    .sd-show-side-nav {
+        display: none!important;
     }
 }
 /* Search Bar */
@@ -433,4 +434,5 @@ body.sd-dark-theme footer.sd-footer {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-right: 16px;
+    display: inline-block;
 }
