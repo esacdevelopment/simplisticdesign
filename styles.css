@@ -380,6 +380,12 @@ body.sd-dark-theme footer.sd-footer {
 .sd-nav.js-nav-open button:disabled {
     box-shadow: 0px -2px 0px #333 inset;
 }
+body.sd-dark-theme .sd-nav.js-nav-open {
+    background: #333!important;
+}
+body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav-open a {
+    color: #fff!important;
+}
 /* Side Nav Bar */
 .sd-side-nav {
     height: 100vh;
@@ -390,6 +396,7 @@ body.sd-dark-theme footer.sd-footer {
     top: 0;
     left: -100vw;
     z-index: 100000;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 .sd-side-nav a.sd-co {
@@ -445,4 +452,80 @@ body.sd-dark-theme footer.sd-footer {
         width: 100vw;
         font-size: 4.5vw;
     }
+}
+/* Side nav search container and input */
+.sd-side-nav span.sd-nav-search-wrapper{
+    width: 100%;
+    height: 8vh;
+    display: inline-block;
+    line-height: 8vh;
+}
+.sd-side-nav span.sd-nav-search-wrapper input {
+    background: #eee;
+    border: none;
+    width: calc(90% - 32px);
+    height: 7vh;
+    border-radius: 6px;
+    outline: none;
+    color: #333;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: 'Roboto';
+    margin-left: 5%;
+}
+.sd-side-nav span.sd-nav-search-wrapper input:focus {
+    box-shadow: 0px 0px 5px #20add855;
+}
+/* side nav dark themes */
+body.sd-dark-theme .sd-side-nav {
+    background: #444;
+}
+body.sd-dark-theme .sd-side-nav button {
+    color: #eee;
+}
+body.sd-dark-theme .sd-side-nav .sd-nav-search-wrapper input {
+    background: #666;
+    color: #eee;
+}
+body.sd-dark-theme .sd-side-nav .sd-nav-search-wrapper input:focus {
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
+}
+body.sd-dark-theme .sd-side-nav .sd-nav-search-wrapper input::-webkit-input-placeholder {
+    color: #999;
+}
+body.sd-dark-theme .sd-side-nav a.sd-co {
+    color: #fff;
+}
+/* This marks the beginning of the styles for the rest of the elements (not a structure element like navigation) */
+/* Buttons
+   Default Button */
+.sd-button {
+    min-width: 75px;
+    font-family: 'Roboto';
+    border: none;
+    padding-left: 8px;
+    padding: right: 8px;
+    height: 35px;
+    border-radius: 5px;
+    background: transparent;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.sd-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+.sd-button:active {
+    background: rgba(0, 0, 0, 0.1);
+}
+/* Raised */
+.sd-button.sd-button-raised {
+    background: #ededed;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.sd-button.sd-button-raised:active {
+    background: #e1e1e1;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
 }

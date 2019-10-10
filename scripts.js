@@ -122,13 +122,20 @@ $(document).on('click', '.sd-side-nav-wrapper', function () {
 // Side Nav for desktop
 $(document).on('click', '.sd-nav button.sd-show-side-nav', function () {
     $(".sd-side-nav").css('left', '0');
-    $("body > *").css('filter', 'blur(5px) grayscale(100%)');
+    $("body > *").css('filter', 'blur(5px)');
+    if ($("body").hasClass('sd-dark-theme')) {
+        $("body > *").css('filter', 'blur(5px) grayscale(60%)');
+    }
     $("body > .sd-side-nav").css('filter', 'none');
 });
 function showsidebarmobile() {
+    if (!$("body").hasClass('sd-dark-theme')) {
+        $(".sd-side-nav").css('background', '#dddddd');
+    } else {
+        $(".sd-side-nav").css('background', '#555');
+    }
     $(".sd-side-nav").css('width', '100vw')
         .css('height', '75vh')
-        .css('background', '#dddddd')
         .css('top', '25vh')
         .css('z-index', '9999')
     function iminside() {
@@ -150,3 +157,4 @@ function hidesidebarmobile() {
     }
     setTimeout(manthisisialotoffuncctions, 600);
 }
+// The scripts so far have been for the main page for Simplistic Design, not for all the elements. This marks the beginning of the section for all the elements on the "examples.html" page
