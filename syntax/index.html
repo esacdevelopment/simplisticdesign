@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script src="../scripts.js"></script>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Simplistic Design Syntax: HTML</title>
+    <style>
+        .sd-page-header {
+            background: url('../images/headerback_no_words.png');
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="sd-nav show-header">
+        <a class="sd-nav-co" href="../index.html">Simplistic Design</a>
+        <button data-url="index.html" data-icon="code fa-lg" disabled>HTML Syntax</button>
+        <button data-url="css.html" data-icon="brackets-curly fa-lg">CSS Syntax</button>
+        <button data-url="js.html" data-icon="code fa-lg">JavaScript Syntax</button>
+    </nav>
+    <header class="sd-page-header">
+        Syntax: HTML
+    </header>
+    <div class="wrapper" hasAside="true">
+        <article>
+            <h2>Basic Syntax</h2>
+            <p>
+                To use Simplistic Design, there is a basic syntax that you must follow. Of course, the normal HTML
+                syntax
+                applies, so you have to follow that. The basic order that the main elements in the page should go in are
+                as
+                follows:<br />
+                <code>body, dialogs, nav, header, wrapper, (inside wraper): article, aside, (outisde wrapper):
+                footer.</code><br />
+            </p>
+            <p>
+                Of course, all of these elements are optional, and you can technically put the elements in any order
+                that you want, you just might get some funky results. What I put above this is simply a recommendation.
+                The only thing that is 100% required is that you have a
+                <code>&lt;div class="wrapper"&gt;...&lt;/div&gt;</code> that surrounds the article and aside elements.
+            </p>
+            <h2>What if I have an Aside?</h2>
+            <p>
+                If you wish to put an aside, you must add the attribute <code>hasAside="true"</code> to your wrapper.
+                This will tell the code to shrink the main article and to put the aside on the actual side of the page.
+                When the page is in mobile, however, the article will appear in full screen so as to make a more
+                pleasant reading experience for those on mobile. The aside, then, will appear at the bottom of the
+                screen. If you fail to add the attribute <code>hasAside="true"</code> to the div, then the aside will
+                appear at the bottom of the screen no matter what platform the user is viewing the page on.
+            </p>
+            <h2>Navigation Bar</h2>
+            <p>
+                To make the main page navigation bar, create a <code>&lt;nav&gt;</code> element with the class
+                <code>sd-nav</code>. This will make a white navigation bar at the top of the screen, unless you add the
+                <code>show-header</code> class, in which case, the navigation bar will be transparent until you scroll
+                far enough in the page. You see an example of this at the top of the screen now.
+            </p>
+        </article>
+        <aside>
+            <h2>Isaac Maddox</h2>
+            <p>
+                Isaac is a Web Developer, and the founder of Simplistic Design. He specializes in HTML, CSS, and
+                JavaScript. Isaac started coding when he was nine, and has continued to this day, and he is currently
+                <span class="my_age"></span> years old. If you want to see more information about Isaac, visit the <a
+                    href="../creator.html">page about Isaac</a>.
+            </p>
+        </aside>
+    </div>
+    <script>
+        var d = new Date();
+        var month = d.getMonth() + 1;
+        var year = d.getFullYear();
+        var yrs = year - 2005;
+        if (month > 9) {
+            $("span.my_age").html(yrs);
+        } else {
+            $("span.my_age").html(yrs - 1);
+        }
+    </script>
+</body>
+
+</html>

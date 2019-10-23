@@ -11,28 +11,228 @@
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Title Here</title>
+    <title>Simplistic Design - Elements</title>
     <style>
         .sd-page-header {
             background: url('../images/headerback_no_words.png');
+        }
+
+        .sd-source-code {
+            background: #eee;
+            color: #333;
+            font-family: 'Consolas';
+            padding: 16px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            width: 95%;
+            margin-right: 2.5%;
+        }
+
+        .attr {
+            color: #20add8;
+        }
+
+        .val {
+            color: #ff8c00;
+        }
+
+        .prop {
+            color: #5cb85c;
+        }
+
+        .ele {
+            color: #da1212;
+        }
+
+        body.sd-dark-theme .sd-source-code {
+            background: #555;
+            color: #ccc;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        body.sd-dark-theme .ele {
+            color: #13F1E9;
         }
     </style>
 </head>
 
 <body>
+    <div class=" sd-side-nav">
+        <a class="sd-co" href="#">Side Nav Bar</a>
+        <button>Side Nav Button</button>
+        <button data-menu="ex">Dropdown</button>
+        <div id="ex" class="sd-side-nav-menu">
+            <button>Option 1</button>
+            <button>Second Option</button>
+            <button>Option Three</button>
+            <button>Fourth Contestant</button>
+            <button>Fifth Button</button>
+        </div>
+        <button>Another Button!</button>
+        <button data-url="../index.html">I have a link!</button>
+        <button data-menu="onemore">Another Dropdown</button>
+        <div class="sd-side-nav-menu" id="onemore">
+            <button>Option One</button>
+            <button>Option Two</button>
+            <button>Option Three</button>
+            <button>Option Four</button>
+            <button>Option Five</button>
+        </div>
+    </div>
+    <div class="sd-nav-drop-menu" id="exopts">
+
+    </div>
     <nav class="sd-nav show-header">
+        <button class="sd-show-side-nav sd-button-ripple">
+            <i class="fa fa-bars"></i>
+        </button>
         <a class="sd-nav-co" href="#">Navigation Bar</a>
         <button data-icon="check" disabled>
             Selected
         </button><button data-icon="question">
             Button
         </button><button data-icon="question">
-            Another Button
+            Dropdown
+        </button><button data-menu="exopts" data-icon="chevron-down">
+            Nothing
+        </button><button onClick="changeTheme()" data-icon="adjust">
+            Change Theme
         </button>
     </nav>
-    <header class="sd-page-header sd-no-parallax">
+    <header class="sd-page-header">
         This is a header
     </header>
+    <div class="wrapper" hasAside="true">
+        <article>
+            <h2>Navigation</h2>
+            <h3>Top Nav</h3>
+            <p>
+                The top nav of simplistic design is the main navigation point of the whole site. This element stays at
+                the top of the page, meaning that it will never go out of view. This obviously means that the element is
+                always accesible. This is important for the mobile version and for the side nav element. Here's how you
+                make a top nav:
+            </p>
+            <p>
+                The kind of nav shown here is always white, and never goes transparent. If you want the nav to go
+                transparent when the page isn't scrolled (to show the header), add the class <span
+                    class="val">"show-header"</span>. Here is the code for the navigation bar that you see at the top of
+                the page:
+            </p>
+            <p>
+                Here's a breakdown of all of that:<br />
+                Obviously, the <span class="ele">nav</span> element makes the bar in the first place. The class <span
+                    class="val">show-header</span>, as mentioned in the text above the code, allows the navigation bar
+                to go transparent when the body is at the top, so that the user can see the header. Adding the attribute
+                <span class="prop">disabled</span> to the button makes sure that the user can't press the button of the
+                page that they are currently viewing, as well as indicating that by underlining the button. The <span
+                    class="attr">data-icon</span> attribute specifies the icon that should display when the site is
+                viewed in mobile (this will be displayed when the user expands the nav bar). Simplistic Design only
+                requires that you put the icon, as it automatically adds "fa fa-" before the icon name that you specify.
+                These icons come from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>. <strong>NOTE:
+                    If you do not have the <span class="attr">data-icon</span> property, the page will not work in
+                    mobile.</strong> You can verify this by pressing <code>Ctrl + Shift + I</code> or <code>F12</code>,
+                showing the developer's console. If you go to the "Console" tab, you will be able to see any errors sent
+                by Simplistic Design, Beginning with <code>SD Error:</code>.
+            </p>
+            <h2>Buttons</h2>
+            <p>
+                Buttons in Simplistic Design are very simple. They are clickable regions on the screen that allow the
+                user to do something. They are typically used for things like confirmation or user interaction in
+                processes. Here are some button examples, followed by the code:
+            </p>
+            <p>
+                <button class='sd-button'>Button</button> <button class="sd-button sd-button-raised">Raised
+                    Button</button><br /><br />
+                <button class="sd-button sd-button-primary">Primary Button</button> <button
+                    class="sd-button sd-button-primary sd-button-raised">Primary Raised Button</button><br /><br />
+                <button class="sd-button sd-button-accent">Accent Button</button> <button
+                    class="sd-button sd-button-raised sd-button-accent">Accent Raised Button</button><br /><br />
+                <button class="sd-button sd-fab">
+                    <i class="fa fa-code fa-lg"></i>
+                </button>
+                <button class="sd-button sd-fab sd-button-raised">
+                    <i class="fa fa-code fa-lg"></i>
+                </button><br /><br />
+
+                <button class="sd-button sd-fab sd-button-primary">
+                    <i class="fa fa-code fa-lg"></i>
+                </button>
+                <button class="sd-button sd-fab sd-button-primary sd-button-raised">
+                    <i class="fa fa-code fa-lg"></i>
+                </button><br /><br />
+                <button class="sd-button sd-fab sd-button-accent">
+                    <i class="fa fa-code fa-lg"></i>
+                </button>
+                <button class="sd-button sd-fab sd-button-accent sd-button-raised">
+                    <i class="fa fa-code fa-lg"></i>
+                </button><br /><br />
+                <h3>Ripple Effect</h3>
+                <p>
+                    The ripple effect is a simple animation that gives the user of a page feedback that they have
+                    clicked the button and that the page has registered that click. It is very useful and gives a nice
+                    look and a fun feel to your web site.
+                </p>
+                <p>
+                    <button class="sd-button sd-button-ripple">
+                        I Ripple!
+                    </button>
+                    <button class="sd-button sd-button-raised sd-button-ripple">
+                        Me Too!
+                    </button>
+                </p>
+                <p>
+                    <button class="sd-button sd-button-primary sd-button-ripple">
+                        Click Me!
+                    </button>
+                    <button class="sd-button sd-button-primary sd-button-raised sd-button-ripple">
+                        Me too, please!
+                    </button>
+                </p>
+                <p>
+                    <button class="sd-button sd-button-accent sd-button-ripple">
+                        Ooo! Pick Me!
+                    </button>
+                    <button class="sd-button sd-button-accent sd-button-raised sd-button-ripple">
+                        Last but not least!
+                    </button>
+                </p>
+                <h4>It also works on FABs!</h4>
+                <p>
+                    <button class="sd-button sd-fab sd-button-ripple">
+                        <i class="fa fa-plus fa-lg"></i>
+                    </button>
+                    <button class="sd-button sd-button-raised sd-fab sd-button-ripple">
+                        <i class="fa fa-link fa-lg"></i>
+                    </button>
+                </p>
+        </article>
+        <aside>
+            <h3>This is an aside</h3>
+            <p>
+                Typically, this is used to show contact info (see the <a href="../index.html">main page</a> for
+                Simplistic Design)
+            </p>
+        </aside>
+    </div>
+    <button class="sd-button sd-fab sd-button-accent sd-button-raised sd-float" onclick="demoDialog()"><i
+            class="fa fa-eye fa-lg"></i></button>
+    <div class="sd-nav-menu" id="exopts">
+        <button>Option 1</button>
+        <button>Hello</button>
+    </div>
+    <script>
+        function changeTheme() {
+            if ($('body').hasClass('sd-dark-theme')) {
+                $("body").removeClass("sd-dark-theme");
+            } else {
+                $("body").addClass("sd-dark-theme");
+            }
+        }
+        createDialog("demo", "Dialog", "I am a simple dialog generated with Simplistic Design's JavaScript library!", ["Button", "Close"], ["none", "hideDialog('demo')"]);
+        function demoDialog() {
+            showDialog('demo');
+        }
+    </script>
 </body>
 
 </html>

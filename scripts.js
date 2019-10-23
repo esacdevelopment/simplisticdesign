@@ -12,7 +12,7 @@ $(document).ready(function () {
             console.error("SD Error: No property \"data-icon\" on a button element in the navigation bar");
         }
     });
-}).on('click', 'body > *:not(.sd-side-nav)', function (e) {
+}).on('click', 'body > *:not(.sd-side-nav):not(.sd-dialog)', function (e) {
     if (parseInt($('.sd-side-nav').css('left')) == 0) {
         if (parseInt($('body').css('width')) > 720) {
             $("body > *").css('filter', 'blur(0px)');
@@ -23,7 +23,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     // Determine the navbar's background:
     var scrollHeight = $(document).scrollTop();
-    var bodyHeight = parseInt($("body").css('height')) / 2;
+    var bodyHeight = parseInt($("body").css('height')) / 3;
     if (scrollHeight >= bodyHeight) {
         $(".sd-nav.show-header").removeClass('transparent');
     } else {
@@ -72,7 +72,7 @@ $(document).ready(function () {
         });
         buttonshow = true;
         $(".sd-nav button.sd-show-options i").css('transform', 'rotate(180deg)');
-        $(".sd-nav button:not(.sd-show-options)").css('width', 'calc(100vw / (' + buttoncount + ')');
+        $(".sd-nav button:not(.sd-show-options)").css('width', 'calc(97vw / ' + buttoncount + '');
     } else {
         if ($(".sd-side-nav").length) {
             hidesidebarmobile();
@@ -107,16 +107,11 @@ $(document).ready(function () {
 $(window).resize(function () {
     var size = parseInt($("body").css('width'));
     if (size > 720) {
-        $(".sd-nav button").css('display', 'inline-block').css('width', 'auto');
+        $(".sd-nav button:not(.sd-show-side-nav)").css('display', 'inline-block').css('width', 'auto');
         $(".sd-nav button.sd-show-options").fadeOut(1);
     } else {
-        $(".sd-nav button").css('display', 'none');
+        $(".sd-nav button:not(.sd-show-side-nav)").css('display', 'none');
         $(".sd-nav button.sd-show-options").fadeIn(100);
-    }
-});
-$(document).on('click', '.sd-side-nav-wrapper', function () {
-    if (!$('.sd-side-nav').hasClass('open')) {
-        // Close the navbar
     }
 });
 // Side Nav for desktop
@@ -129,11 +124,6 @@ $(document).on('click', '.sd-nav button.sd-show-side-nav', function () {
     $("body > .sd-side-nav").css('filter', 'none');
 });
 function showsidebarmobile() {
-    if (!$("body").hasClass('sd-dark-theme')) {
-        $(".sd-side-nav").css('background', '#dddddd');
-    } else {
-        $(".sd-side-nav").css('background', '#555');
-    }
     $(".sd-side-nav").css('width', '100vw')
         .css('height', '75vh')
         .css('top', '25vh')
@@ -148,7 +138,6 @@ function hidesidebarmobile() {
     function waitformetohide() {
         $(".sd-side-nav").css('left', '-100vw')
             .css('height', '100vh')
-            .css('background', '#fff')
             .css('z-index', '100000');
     }
     setTimeout(waitformetohide, 300);
@@ -158,3 +147,124 @@ function hidesidebarmobile() {
     setTimeout(manthisisialotoffuncctions, 600);
 }
 // The scripts so far have been for the main page for Simplistic Design, not for all the elements. This marks the beginning of the section for all the elements on the "examples.html" page
+// Side Nav Dropdown menu
+$(document).ready(function () {
+    $('.sd-side-nav button').each(function () {
+        if ($(this).data('menu') !== undefined) {
+            $(this).append('<i class="fa fa-chevron-down"></i>');
+        }
+    });
+});
+// Side Nav Menus
+$(document).on('click', '.sd-side-nav button', function () {
+    if ($(this).data('menu') !== undefined) {
+        var openMe = $(this).data('menu');
+        var buttonCount = 0;
+        if ($("div.sd-side-nav-menu#" + openMe).css('height') == "0px") {
+            $("div.sd-side-nav-menu#" + openMe + ' button').each(function () {
+                buttonCount++;
+            });
+            buttonCount = buttonCount * 8;
+            $("div.sd-side-nav-menu#" + openMe).css('height', buttonCount + 'vh');
+            $(this).addClass('js-menuopen').children('i').css('transform', 'rotate(180deg)');
+        } else {
+            $("div.sd-side-nav-menu#" + openMe).css('height', '0px');
+            $(this).removeClass('js-menuopen').children('i').css('transform', 'rotate(0deg)');
+        }
+    }
+});
+// Dialogs
+
+function createDialog(dialogid, header, message, buttons, actions) {
+    var id = dialogid;
+    var btns = buttons;
+    var head = header;
+    var msg = message;
+    $('body').append('<div class="sd-dialog" id="' + id + '"><div class="sd-dialog-header">' + head + '<button class="sd-dialog-close"><i class="fa fa-close"></i></button></div><div class="sd-dialog-message">' + msg + '</div><div class="sd-dialog-footer"></div></div>');
+    if (actions !== undefined) {
+        var acts = actions;
+        for (var i = 0; i < btns.length; i++) {
+            if (acts[i] !== "none") {
+                $("#" + id + " .sd-dialog-footer").append('<button class="sd-button" onclick="' + acts[i] + '">' + btns[i] + '</button>');
+            } else {
+                $('#' + id + ' .sd-dialog-footer').append('<button class="sd-button">' + btns[i] + '</button>');
+            }
+        }
+    } else {
+        for (var i = 0; i < btns.length; i++) {
+            $('#' + id + ' .sd-dialog-footer').append('<button class="sd-button">' + btns[i] + '</button>');
+        }
+    }
+}
+function showDialog(showid) {
+    var dialogID = showid;
+    $(".sd-dialog#" + dialogID).css('transform', 'scale(1)');
+    $("body > *:not(.sd-dialog)").css('filter', 'blur(10px)');
+    if ($("body").hasClass('sd-dark-theme')) {
+        $("body > *:not(.sd-dialog)").css('filter', 'blur(10px) grayscale(60%)');
+    }
+};
+function hideDialog(hideid) {
+    var dialogId = hideid;
+    $(".sd-dialog#" + dialogId).css('transform', 'scale(0)');
+    $("body > *:not(.sd-dialog)").css('filter', 'blur(0px) grayscale(0%)');
+}
+$(document).on('click', '.sd-dialog-close', function () {
+    $("body > *:not(.sd-dialog)").css('filter', 'blur(0px)');
+    $(this).parent().parent().css('transform', 'scale(0)');
+});
+
+var buttonid = 0;
+var activerips = [];
+var buttonheight = 0;
+$(document).on('mousedown', '.sd-button.sd-button-ripple', function (e) {
+    buttonid++;
+    buttonheight = Math.max(
+        parseInt($(this).css('height')),
+        parseInt($(this).css('width'))
+    ) * 4;
+    var ex = e.clientX - $(this).offset().left - buttonheight / 2;
+    var why = e.pageY - $(this).offset().top - buttonheight / 2;
+    $(this).append('<div class="sd-js-ripple" id="' + buttonid + '"></div>');
+    $(".sd-js-ripple#" + buttonid).css('top', why + 'px').css('left', ex + 'px').css('height', buttonheight + 'px').css('width', buttonheight + 'px');
+    function h() {
+        $(".sd-js-ripple#" + buttonid).css('transform', 'scale(1)');
+    } setTimeout(h, 1);
+    activerips.push(buttonid);
+}).on('mouseup', '.sd-button.sd-button-ripple', function (e) {
+    for (var r = 0; r < activerips.length; r++) {
+        $(".sd-js-ripple#" + activerips[r]).css('opacity', '0');
+    }
+});
+
+$(document).on('click', '.sd-nav button', function () {
+    if ($(this).data('menu') !== undefined) {
+        var menu = $(this).data("menu");
+        $(this).addClass('sd-js-menuopen');
+        if ($(".sd-nav-menu#" + menu).length) {
+            $(".sd-nav-menu#" + menu).css('display', 'inline-block');
+        }
+    }
+});
+$(document).ready(function () {
+    $(".sd-nav button").each(function () {
+        if ($(this).data('menu') !== undefined) {
+            $(this).append('<i class="fa fa-chevron-down"></i>');
+        }
+        var x = $(this).offset().left + 6;
+        var y = $(this).css("width");
+        $(".sd-nav-menu#" + $(this).data('menu')).css('left', x + 'px').css('width', y);
+    });
+}).on('click', '.sd-nav button', function () {
+    var bc = 0;
+    if ($(this).data('menu') !== undefined) {
+        $(".sd-nav-menu#" + $(this).data('menu') + " button").each(function () {
+            bc++;
+        });
+        $(".sd-nav-menu#" + $(this).data('menu')).css('height', bc * 6 + 'vh');
+    }
+}).on('click', '.sd-nav-menu button', function () {
+    $(this).parent().css('height', '0px');
+    var isna = $(this).parent().prop('id');
+    $(".sd-nav button[data-menu='" + isna + "']").removeClass('sd-js-menuopen');
+});
