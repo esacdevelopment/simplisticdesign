@@ -217,7 +217,7 @@ $(document).on('click', '.sd-dialog-close', function () {
 var buttonid = 0;
 var activerips = [];
 var buttonheight = 0;
-$(document).on('mousedown', '.sd-button.sd-button-ripple', function (e) {
+$(document).on('mousedown, touchdown', '.sd-button.sd-button-ripple', function (e) {
     buttonid++;
     buttonheight = Math.max(
         parseInt($(this).css('height')),
@@ -231,40 +231,8 @@ $(document).on('mousedown', '.sd-button.sd-button-ripple', function (e) {
         $(".sd-js-ripple#" + buttonid).css('transform', 'scale(1)');
     } setTimeout(h, 1);
     activerips.push(buttonid);
-}).on('mouseup', '.sd-button.sd-button-ripple', function (e) {
+}).on('mouseup, touchup', '.sd-button.sd-button-ripple', function (e) {
     for (var r = 0; r < activerips.length; r++) {
         $(".sd-js-ripple#" + activerips[r]).css('opacity', '0');
     }
-});
-
-$(document).on('click', '.sd-nav button', function () {
-    if ($(this).data('menu') !== undefined) {
-        var menu = $(this).data("menu");
-        $(this).addClass('sd-js-menuopen');
-        if ($(".sd-nav-menu#" + menu).length) {
-            $(".sd-nav-menu#" + menu).css('display', 'inline-block');
-        }
-    }
-});
-$(document).ready(function () {
-    $(".sd-nav button").each(function () {
-        if ($(this).data('menu') !== undefined) {
-            $(this).append('<i class="fa fa-chevron-down"></i>');
-        }
-        var x = $(this).offset().left + 6;
-        var y = $(this).css("width");
-        $(".sd-nav-menu#" + $(this).data('menu')).css('left', x + 'px').css('width', y);
-    });
-}).on('click', '.sd-nav button', function () {
-    var bc = 0;
-    if ($(this).data('menu') !== undefined) {
-        $(".sd-nav-menu#" + $(this).data('menu') + " button").each(function () {
-            bc++;
-        });
-        $(".sd-nav-menu#" + $(this).data('menu')).css('height', bc * 6 + 'vh');
-    }
-}).on('click', '.sd-nav-menu button', function () {
-    $(this).parent().css('height', '0px');
-    var isna = $(this).parent().prop('id');
-    $(".sd-nav button[data-menu='" + isna + "']").removeClass('sd-js-menuopen');
 });

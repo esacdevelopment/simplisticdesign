@@ -391,15 +391,6 @@ body.sd-dark-theme footer.sd-footer {
 body.sd-dark-theme .sd-nav.js-nav-open {
     background: #333!important;
 }
-.sd-nav button.sd-js-menuopen {
-    background: #fff!important;
-    color: #333!important;
-    text-shadow: none!important;
-}
-.sd-nav button.sd-js-menuopen i {
-    text-shadow: none;
-    transform: rotate(-180deg);
-}
 body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav-open a {
     color: #fff!important;
 }
@@ -755,42 +746,4 @@ body.sd-dark-theme .sd-dialog-message {
 body.sd-dark-theme .sd-button.sd-button-raised .sd-js-ripple {
     background: #fff;
     opacity: 0.2;
-}
-/* Top Navigation Bar Menus */
-.sd-nav-menu {
-    background: #fff;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 0px;
-    width: fit-content;
-    height: 0px;
-    overflow: hidden;
-    position: fixed;
-    top: 75px;
-    z-index: 10000;
-    transition: all 0.3s ease;
-}
-.sd-nav-menu button {
-    background: transparent;
-    font-family: 'Be Vietnam';
-    border: none;
-    outline: none;
-    width: 100%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: 6vh;
-    min-width: 7vw;
-    font-weight: 500;
-    display: block;
-}
-.sd-nav-menu button:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-.sd-nav-menu button:active {
-    background: rgba(0, 0, 0, 0.1);
-}
-.sd-nav button i.fa.fa-chevron-down {
-    float: right;
-}
-.sd-nav button[data-menu] i {
-    transition: all 0.3s ease;
 }
