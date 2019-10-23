@@ -217,7 +217,7 @@ $(document).on('click', '.sd-dialog-close', function () {
 var buttonid = 0;
 var activerips = [];
 var buttonheight = 0;
-$(document).on('mousedown, touchdown', '.sd-button.sd-button-ripple', function (e) {
+$(document).on('mousedown touchdown', '.sd-button.sd-button-ripple', function (e) {
     buttonid++;
     buttonheight = Math.max(
         parseInt($(this).css('height')),
@@ -231,7 +231,7 @@ $(document).on('mousedown, touchdown', '.sd-button.sd-button-ripple', function (
         $(".sd-js-ripple#" + buttonid).css('transform', 'scale(1)');
     } setTimeout(h, 1);
     activerips.push(buttonid);
-}).on('mouseup, touchup', '.sd-button.sd-button-ripple', function (e) {
+}).on('mouseup touchup', '.sd-button.sd-button-ripple', function (e) {
     for (var r = 0; r < activerips.length; r++) {
         $(".sd-js-ripple#" + activerips[r]).css('opacity', '0');
     }
