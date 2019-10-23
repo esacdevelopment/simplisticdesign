@@ -31,37 +31,15 @@
     </header>
     <div class="wrapper">
         <article>
-            <h2>Basic Syntax</h2>
-            <p>
-                To use Simplistic Design, there is a basic syntax that you must follow. Of course, the normal HTML
-                syntax
-                applies, so you have to follow that. The basic order that the main elements in the page should go in are
-                as
-                follows:<br />
-                <code>body, dialogs, nav, header, wrapper, (inside wraper): article, aside, (outisde wrapper):
-                footer.</code><br />
-            </p>
-            <p>
-                Of course, all of these elements are optional, and you can technically put the elements in any order
-                that you want, you just might get some funky results. What I put above this is simply a recommendation.
-                The only thing that is 100% required is that you have a
-                <code>&lt;div class="wrapper"&gt;...&lt;/div&gt;</code> that surrounds the article and aside elements.
-            </p>
-            <h2>What if I have an Aside?</h2>
-            <p>
-                If you wish to put an aside, you must add the attribute <code>hasAside="true"</code> to your wrapper.
-                This will tell the code to shrink the main article and to put the aside on the actual side of the page.
-                When the page is in mobile, however, the article will appear in full screen so as to make a more
-                pleasant reading experience for those on mobile. The aside, then, will appear at the bottom of the
-                screen. If you fail to add the attribute <code>hasAside="true"</code> to the div, then the aside will
-                appear at the bottom of the screen no matter what platform the user is viewing the page on.
-            </p>
-            <h2>Navigation Bar</h2>
-            <p>
-
-            </p>
         </article>
     </div>
+    <script>
+        createDialog("warning", 'Warning!', "This page is still being made. You can still view it if you want to, just know that you will not be able to find some of the information that you might want to here. Thanks!", ["Go to main page", "View this Page"], ["main()", "hideDialog('warning')"]);
+        showDialog('warning');
+        function main() {
+            window.location.href = "../index.html";
+        }
+    </script>
 </body>
 
 </html>

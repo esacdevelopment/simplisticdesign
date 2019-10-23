@@ -84,6 +84,11 @@
         } else {
             $("span.my_age").html(yrs - 1);
         }
+        createDialog("warning", 'Warning!', "This page is still being made. You can still view it if you want to, just know that you will not be able to find some of the information that you might want to here. Thanks!", ["Go to main page", "View this Page"], ["main()", "hideDialog('warning')"]);
+        showDialog('warning');
+        function main() {
+            window.location.href = "../index.html";
+        }
     </script>
 </body>
 
