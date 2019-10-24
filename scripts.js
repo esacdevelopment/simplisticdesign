@@ -248,7 +248,9 @@ $(document).on('click', '.sd-side-nav button:not(.sd-js-dropdown)', function () 
     }
 });
 // sd-footer align-right 
-$('.sd-footer .sd-align-right').each(function() {
-    var h = $(this).parent().css('height');
-    $(this).css('height', h).css('line-height', h);
+$(document).ready(function() {
+    $('.sd-footer .sd-align-right').each(function() {
+        var h = $(this).parent().css('height');
+        $(this).css('height', h).css('line-height', h);
+    });
 });
