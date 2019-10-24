@@ -781,3 +781,6 @@ body.sd-dark-theme .sd-button.sd-button-primary:hover {
 body.sd-dark-theme .sd-button.sd-button-accent:hover {
     background: #ff69b411;
 }
+.sd-card-footer button {
+       vertical-align: middle;
+}
