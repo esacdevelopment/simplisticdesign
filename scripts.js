@@ -151,7 +151,7 @@ function hidesidebarmobile() {
 $(document).ready(function () {
     $('.sd-side-nav button').each(function () {
         if ($(this).data('menu') !== undefined) {
-            $(this).append('<i class="fa fa-chevron-down"></i>');
+            $(this).append('<i class="fa fa-chevron-down"></i>').addClass('sd-js-dropdown');
         }
     });
 });
@@ -185,14 +185,14 @@ function createDialog(dialogid, header, message, buttons, actions) {
         var acts = actions;
         for (var i = 0; i < btns.length; i++) {
             if (acts[i] !== "none") {
-                $("#" + id + " .sd-dialog-footer").append('<button class="sd-button" onclick="' + acts[i] + '">' + btns[i] + '</button>');
+                $("#" + id + " .sd-dialog-footer").append('<button class="sd-button sd-button-ripple" onclick="' + acts[i] + '">' + btns[i] + '</button>');
             } else {
-                $('#' + id + ' .sd-dialog-footer').append('<button class="sd-button">' + btns[i] + '</button>');
+                $('#' + id + ' .sd-dialog-footer').append('<button class="sd-button sd-button-ripple">' + btns[i] + '</button>');
             }
         }
     } else {
         for (var i = 0; i < btns.length; i++) {
-            $('#' + id + ' .sd-dialog-footer').append('<button class="sd-button">' + btns[i] + '</button>');
+            $('#' + id + ' .sd-dialog-footer').append('<button class="sd-button sd-button-ripple">' + btns[i] + '</button>');
         }
     }
 }
@@ -217,12 +217,12 @@ $(document).on('click', '.sd-dialog-close', function () {
 var buttonid = 0;
 var activerips = [];
 var buttonheight = 0;
-$(document).on('mousedown touchdown', '.sd-button.sd-button-ripple', function (e) {
+$(document).on('mousedown touchdown', 'button.sd-button-ripple', function (e) {
     buttonid++;
     buttonheight = Math.max(
         parseInt($(this).css('height')),
         parseInt($(this).css('width'))
-    ) * 4;
+    ) * 2.4;
     var ex = e.clientX - $(this).offset().left - buttonheight / 2;
     var why = e.pageY - $(this).offset().top - buttonheight / 2;
     $(this).append('<div class="sd-js-ripple" id="' + buttonid + '"></div>');
@@ -231,8 +231,19 @@ $(document).on('mousedown touchdown', '.sd-button.sd-button-ripple', function (e
         $(".sd-js-ripple#" + buttonid).css('transform', 'scale(1)');
     } setTimeout(h, 1);
     activerips.push(buttonid);
-}).on('mouseup touchup', '.sd-button.sd-button-ripple', function (e) {
+}).on('mouseup touchup', '*', function (e) {
     for (var r = 0; r < activerips.length; r++) {
         $(".sd-js-ripple#" + activerips[r]).css('opacity', '0');
+    }
+});
+$(document).on('click', '.sd-side-nav button:not(.sd-js-dropdown)', function () {
+    $(".sd-side-nav").css('left', '-100vw');
+    $("body > *").css('filter', 'blur(0px)');
+    if ($(this).data('url') !== undefined) {
+        if ($('.sd-nav').length) {
+            $("body, html").animate({
+                scrollTop: $(document).scrollTop() - 75
+            }, 0);
+        }
     }
 });

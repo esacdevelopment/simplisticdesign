@@ -84,6 +84,8 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     transition: all 0.3s ease;
     padding-right: 16px;
     padding-left: 16px;
+    overflow: hidden;
+    position: relative;
 }
 .sd-nav button:hover {
     background: rgba(0, 0, 0, 0.05);
@@ -436,6 +438,8 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
     transition: all 0.3s ease;
     text-align: left;
     padding-left: 3vw;
+    overflow: hidden;
+    position: relative;
 }
 .sd-side-nav button:hover {
     background: rgba(0, 0, 0, 0.05);
@@ -457,6 +461,8 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
     transition: all 0.3s ease;
     margin-right: 16px;
     display: inline-block;
+    overflow: hidden;
+    position: relative;
 }
 /* Side Nav Mobile Styles */
 @media screen and (max-width: 720px) {
@@ -726,14 +732,14 @@ body.sd-dark-theme .sd-dialog-message {
     background: #333;
     opacity: 0.4;
     border-radius: 50%;
-    transition: all 0.3s ease-out;
+    transition: all 0.5s cubic-bezier(0.1, 0.1, 0.001, 1);
     position: absolute;
     transform: scale(0);
 }
 .sd-button.sd-button-accent .sd-js-ripple {
     background: #ff69b4;
 }
-.sd-button.sd-button-ripple:active {
+.sd-button.sd-button-ripple:not(.sd-button-raised):active {
     background: transparent;
 }
 .sd-button.sd-button-primary .sd-js-ripple {
@@ -741,9 +747,33 @@ body.sd-dark-theme .sd-dialog-message {
 }
 .sd-button.sd-button-primary.sd-button-raised .sd-js-ripple, .sd-button.sd-button-accent.sd-button-raised .sd-js-ripple {
     background: #fff;
-    opacity:  0.2;
+    opacity:  0.3;
 }
 body.sd-dark-theme .sd-button.sd-button-raised .sd-js-ripple {
     background: #fff;
     opacity: 0.2;
+}
+.sd-nav button .sd-js-ripple {
+    background: #333;
+    opacity: 0.2;
+}
+.sd-nav.transparent button .sd-js-ripple, body.sd-dark-theme .sd-nav button .sd-js-ripple {
+    background: #fff;
+    opacity: 0.2;
+}
+body.sd-dark-theme .sd-side-nav button .sd-js-ripple {
+    background: #fff;
+    opacity: 0.2;
+}
+body.sd-dark-theme .sd-button:not(.sd-button-primary):not(.sd-button-accent) .sd-js-ripple {
+    background: #fff;
+}
+body.sd-dark-theme .sd-button.sd-button-primary .sd-js-ripple, body.sd-dark-theme .sd-button.sd-button-accent .sd-js-ripple {
+    opacity: 0.2;
+}
+body.sd-dark-theme .sd-button.sd-button-primary:hover {
+    background: #2c67e311;
+}
+body.sd-dark-theme .sd-button.sd-button-accent:hover {
+    background: #ff69b411;
 }

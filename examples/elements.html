@@ -58,26 +58,16 @@
 
 <body>
     <div class=" sd-side-nav">
-        <a class="sd-co" href="#">Side Nav Bar</a>
-        <button>Side Nav Button</button>
-        <button data-menu="ex">Dropdown</button>
-        <div id="ex" class="sd-side-nav-menu">
-            <button>Option 1</button>
-            <button>Second Option</button>
-            <button>Option Three</button>
-            <button>Fourth Contestant</button>
-            <button>Fifth Button</button>
+        <a class="sd-co" href="#">Quick Find...</a>
+        <button data-menu="btn_opts">Buttons</button>
+        <div class="sd-side-nav-menu" id="btn_opts">
+            <button data-url="#buttons">Flat Buttons</button>
+            <button data-url="#r_buttons">Raised Buttons</button>
+            <button data-url="#fabs">Floating Action Buttons</button>
         </div>
-        <button>Another Button!</button>
-        <button data-url="../index.html">I have a link!</button>
-        <button data-menu="onemore">Another Dropdown</button>
-        <div class="sd-side-nav-menu" id="onemore">
-            <button>Option One</button>
-            <button>Option Two</button>
-            <button>Option Three</button>
-            <button>Option Four</button>
-            <button>Option Five</button>
-        </div>
+        <button data-url="#nav">Navigation</button>
+        <button data-url="#cards">Cards</button>
+        <button data-url="#dialogs">Dialogs</button>
     </div>
     <div class="sd-nav-drop-menu" id="exopts">
 
@@ -92,8 +82,8 @@
         </button><button data-icon="question">
             Button
         </button><button data-icon="question">
-            Dropdown
-        </button><button data-menu="exopts" data-icon="chevron-down">
+            Another One
+        </button><button data-icon="chevron-down">
             Nothing
         </button><button onClick="changeTheme()" data-icon="adjust">
             Change Theme
@@ -104,107 +94,94 @@
     </header>
     <div class="wrapper" hasAside="true">
         <article>
-            <h2>Navigation</h2>
-            <h3>Top Nav</h3>
+            <h1>Simplistic Design Elements</h1>
+            <h2>Please Keep in Mind...</h2>
             <p>
-                The top nav of simplistic design is the main navigation point of the whole site. This element stays at
-                the top of the page, meaning that it will never go out of view. This obviously means that the element is
-                always accesible. This is important for the mobile version and for the side nav element. Here's how you
-                make a top nav:
+                This page is SOLELY for the use of showing off the elements with a brief description on how they work.
+                The code will not be shown here. To get the code for the elements, you can go to the <a
+                    href="../syntax/index.html">Syntax Pages</a>.
+            </p>
+            <h2 id="buttons">Buttons</h2>
+            <p>
+                Here are all the buttons:
+            </p>
+            <h3>Flat Buttons</h3>
+            <p>
+                <button class="sd-button">Flat Button</button> <button class="sd-button sd-button-primary">Primary
+                    Flat</button> <button class="sd-button sd-button-accent">Accent Flat</button><br /><br />
+                <button class="sd-button sd-button-ripple">Ripple Flat</button> <button
+                    class="sd-button sd-button-primary sd-button-ripple">Primary Ripple Flat</button> <button
+                    class="sd-button sd-button-accent sd-button-ripple">Accent Ripple Flat</button>
+            </p>
+            <h3 id="r_buttons">Raised Buttons</h3>
+            <p>
+                <button class="sd-button sd-button-raised">Raised Button</button> <button
+                    class="sd-button sd-button-primary sd-button-raised">Primary Raised Button</button> <button
+                    class="sd-button sd-button-accent sd-button-raised">Accent Raised Button</button><br /><br />
+                <button class="sd-button sd-button-raised sd-button-ripple">Ripple Raised Button</button> <button
+                    class="sd-button sd-button-raised sd-button-primary sd-button-ripple">Primary Raised Ripple</button>
+                <button class="sd-button sd-button-raised sd-button-accent sd-button-ripple">Accent Raised
+                    Ripple</button>
+            </p>
+            <h3 id="fabs">FABs</h3>
+            <p>
+                <button class="sd-button sd-fab"><i class="fa fa-code"></i></button>
+                <button class="sd-button sd-button-raised sd-fab"><i class="fa fa-code"></i></button>
+                <button class="sd-button sd-button-ripple sd-fab"><i class="fa fa-code"></i></button>
+                <button class="sd-button sd-button-raised sd-fab sd-button-ripple"><i class="fa fa-code"></i></button>
+                <br /><br />
+                <button class="sd-button sd-button-primary sd-fab"><i class="fa fa-plus"></i></button>
+                <button class="sd-button sd-button-primary sd-button-raised sd-fab"><i class="fa fa-plus"></i></button>
+                <button class="sd-button sd-button-primary sd-fab sd-button-ripple"><i class="fa fa-plus"></i></button>
+                <button class="sd-button sd-button-primary sd-button-raised sd-fab sd-button-ripple"><i
+                        class="fa fa-plus"></i></button>
+                <br /><br />
+                <button class="sd-button sd-button-accent sd-fab"><i class="fa fa-search"></i></button>
+                <button class="sd-button sd-button-accent sd-fab sd-button-raised"><i class="fa fa-search"></i></button>
+                <button class="sd-button sd-button-accent sd-fab sd-button-ripple"><i class="fa fa-search"></i></button>
+                <button class="sd-button sd-button-accent sd-fab sd-button-raised sd-button-ripple"><i
+                        class="fa fa-search"></i></button>
             </p>
             <p>
-                The kind of nav shown here is always white, and never goes transparent. If you want the nav to go
-                transparent when the page isn't scrolled (to show the header), add the class <span
-                    class="val">"show-header"</span>. Here is the code for the navigation bar that you see at the top of
-                the page:
+                You can also make the FAB button float. If you look in the bottom right corner of your screen, you will
+                see a FAB. This has the class <code>sd-float</code>.
             </p>
-            <p>
-                Here's a breakdown of all of that:<br />
-                Obviously, the <span class="ele">nav</span> element makes the bar in the first place. The class <span
-                    class="val">show-header</span>, as mentioned in the text above the code, allows the navigation bar
-                to go transparent when the body is at the top, so that the user can see the header. Adding the attribute
-                <span class="prop">disabled</span> to the button makes sure that the user can't press the button of the
-                page that they are currently viewing, as well as indicating that by underlining the button. The <span
-                    class="attr">data-icon</span> attribute specifies the icon that should display when the site is
-                viewed in mobile (this will be displayed when the user expands the nav bar). Simplistic Design only
-                requires that you put the icon, as it automatically adds "fa fa-" before the icon name that you specify.
-                These icons come from <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>. <strong>NOTE:
-                    If you do not have the <span class="attr">data-icon</span> property, the page will not work in
-                    mobile.</strong> You can verify this by pressing <code>Ctrl + Shift + I</code> or <code>F12</code>,
-                showing the developer's console. If you go to the "Console" tab, you will be able to see any errors sent
-                by Simplistic Design, Beginning with <code>SD Error:</code>.
-            </p>
-            <h2>Buttons</h2>
-            <p>
-                Buttons in Simplistic Design are very simple. They are clickable regions on the screen that allow the
-                user to do something. They are typically used for things like confirmation or user interaction in
-                processes. Here are some button examples, followed by the code:
-            </p>
-            <p>
-                <button class='sd-button'>Button</button> <button class="sd-button sd-button-raised">Raised
-                    Button</button><br /><br />
-                <button class="sd-button sd-button-primary">Primary Button</button> <button
-                    class="sd-button sd-button-primary sd-button-raised">Primary Raised Button</button><br /><br />
-                <button class="sd-button sd-button-accent">Accent Button</button> <button
-                    class="sd-button sd-button-raised sd-button-accent">Accent Raised Button</button><br /><br />
-                <button class="sd-button sd-fab">
-                    <i class="fa fa-code fa-lg"></i>
-                </button>
-                <button class="sd-button sd-fab sd-button-raised">
-                    <i class="fa fa-code fa-lg"></i>
-                </button><br /><br />
 
-                <button class="sd-button sd-fab sd-button-primary">
-                    <i class="fa fa-code fa-lg"></i>
-                </button>
-                <button class="sd-button sd-fab sd-button-primary sd-button-raised">
-                    <i class="fa fa-code fa-lg"></i>
-                </button><br /><br />
-                <button class="sd-button sd-fab sd-button-accent">
-                    <i class="fa fa-code fa-lg"></i>
-                </button>
-                <button class="sd-button sd-fab sd-button-accent sd-button-raised">
-                    <i class="fa fa-code fa-lg"></i>
-                </button><br /><br />
-                <h3>Ripple Effect</h3>
-                <p>
-                    The ripple effect is a simple animation that gives the user of a page feedback that they have
-                    clicked the button and that the page has registered that click. It is very useful and gives a nice
-                    look and a fun feel to your web site.
-                </p>
-                <p>
-                    <button class="sd-button sd-button-ripple">
-                        I Ripple!
-                    </button>
-                    <button class="sd-button sd-button-raised sd-button-ripple">
-                        Me Too!
-                    </button>
-                </p>
-                <p>
-                    <button class="sd-button sd-button-primary sd-button-ripple">
-                        Click Me!
-                    </button>
-                    <button class="sd-button sd-button-primary sd-button-raised sd-button-ripple">
-                        Me too, please!
-                    </button>
-                </p>
-                <p>
-                    <button class="sd-button sd-button-accent sd-button-ripple">
-                        Ooo! Pick Me!
-                    </button>
-                    <button class="sd-button sd-button-accent sd-button-raised sd-button-ripple">
-                        Last but not least!
-                    </button>
-                </p>
-                <h4>It also works on FABs!</h4>
-                <p>
-                    <button class="sd-button sd-fab sd-button-ripple">
-                        <i class="fa fa-plus fa-lg"></i>
-                    </button>
-                    <button class="sd-button sd-button-raised sd-fab sd-button-ripple">
-                        <i class="fa fa-link fa-lg"></i>
-                    </button>
-                </p>
+            <h2 id="nav">Navigation</h2>
+            <p>
+                Navigation is simple. You can see all the navigation on the page. At the top, you see the main
+                navigation bar. If you are on a computer, click the three bars in the top left. If you are on mobile or
+                a smaller screen, click the down arrow in the top right. You can now see the side navigation bar. Also,
+                on mobile, you can see the buttons in the navigation bar.
+            </p>
+            <h2 id="cards">Cards</h2>
+            <p>
+                There is only one type of card, but more are coming soon. Below is an example of a card.
+            </p>
+            <p>
+                <div class="sd-card sd-lg">
+                    <div class="sd-card-header">
+                        Head
+                    </div>
+                    <p>
+                        This is the text that is displayed in the card. It is contained in a paragraph element.
+                    </p>
+                    <div class="sd-card-footer">
+                        This is the card's footer. Links go here.
+                    </div>
+                </div>
+            </p>
+            <h2 id="dialogs">Dialogs</h2>
+            <p>
+                Dialogs cannot be seen by default on the page, without the developer specifying this. For more
+                information on how a dialog works, visit the <a href="../syntax/js.html">JavaScript syntax page</a>, or
+                the <a href="../syntax/index.html">HTML syntax page</a>.
+            </p>
+            <p>
+                To view a dialog, you can click the button in the bottom right of the screen. <strong>Please
+                    note:</strong> this is only the case for this page because I specified an onClick attribute for the
+                button. This is not the <em>default</em> behavior of the button.
+            </p>
         </article>
         <aside>
             <h3>This is an aside</h3>
@@ -214,8 +191,13 @@
             </p>
         </aside>
     </div>
-    <button class="sd-button sd-fab sd-button-accent sd-button-raised sd-float" onclick="demoDialog()"><i
+    <button class="sd-button sd-fab sd-button-raised sd-float sd-button-ripple" onclick="demoDialog()"><i
             class="fa fa-eye fa-lg"></i></button>
+    <footer class="sd-footer">
+        Simplistic Design was made by Isaac Maddox. <a href="../about.html">About Isaac</a> | This page does
+        <strong>not</strong> include how to make the elements. For that, click <a href="../syntax/index.html">here</a>
+        <em>(not finished)</em>.
+    </footer>
     <script>
         function changeTheme() {
             if ($('body').hasClass('sd-dark-theme')) {
@@ -228,6 +210,9 @@
         function demoDialog() {
             showDialog('demo');
         }
+        $(document).ready(function () {
+            $(".sd-nav button, .sd-side-nav button").addClass("sd-button-ripple");
+        });
     </script>
 </body>
 
