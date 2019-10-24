@@ -83,7 +83,7 @@ $(document).ready(function () {
                 $(".sd-nav .sd-nav-co").fadeIn(100);
                 $(".sd-nav button.sd-show-options i").css('transform', 'rotate(0deg)');
                 $(".sd-nav button:not(.sd-show-options)").each(function () {
-                    $(this).html($(this).data('originaltext');
+                    $(this).html($(this).data('originaltext'));
                     buttonshow = false;
                 });
                 $(".sd-nav button.sd-show-options").css('width', '30%').css('height', '100%');
@@ -96,7 +96,7 @@ $(document).ready(function () {
             $(".sd-nav .sd-nav-co").fadeIn(100);
             $(".sd-nav button.sd-show-options i").css('transform', 'rotate(0deg)');
             $(".sd-nav button:not(.sd-show-options)").each(function () {
-                $(this).html($(this).data('originaltext'))
+                $(this).html($(this).data('originaltext'));
                 buttonshow = false;
             });
             $(".sd-nav button.sd-show-options").css('width', '30%').css('height', '100%');
