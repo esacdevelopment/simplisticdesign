@@ -567,6 +567,9 @@ body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
     position: relative;
     overflow: hidden;
 }
+button::-moz-focus-inner {
+  border: 0;
+}
 .sd-button:hover {
     background: rgba(0, 0, 0, 0.05);
 }
