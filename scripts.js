@@ -247,9 +247,3 @@ $(document).on('click', '.sd-side-nav button:not(.sd-js-dropdown)', function () 
         }
     }
 });
-
-$(document).scroll(function() {
-    var bh = parseInt($("body").css('height'));
-    var be = parseInt($(window).height);
-    alert(be);
-});
