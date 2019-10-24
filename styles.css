@@ -5,6 +5,7 @@
 /* Align text styles */
 .sd-align-right {
     float: right;
+    display: inline-block;
 }
 
 body, html {
