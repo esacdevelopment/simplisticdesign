@@ -5,7 +5,6 @@
 /* Align text styles */
 .sd-align-right {
     float: right;
-    display: inline-block;
 }
 
 body, html {
@@ -69,7 +68,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     line-height: 75px;
     margin-right: 4vw;
     vertical-align: top;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .sd-nav button:not(.sd-show-side-nav) {
     height: 100%;
@@ -82,7 +81,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     font-weight: 500;
     outline: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     padding-right: 16px;
     padding-left: 16px;
     overflow: hidden;
@@ -107,7 +106,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     padding: none;
 }
 .sd-nav button.sd-show-options i {
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 /* Customize navbar for mobile or small devices */
 @media screen and (max-width: 720px) {
@@ -159,7 +158,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
     outline: none;
     border-radius: 10px;
     font-family: 'Roboto';
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.4);
 }
@@ -261,7 +260,20 @@ body.sd-dark-theme .sd-nav button:disabled, .sd-nav.transparent button:disabled 
     background-size: cover;
     font-family: 'Be Vietnam', sans-serif;
 }
-
+div.sd-section-header {
+    height: 20vh;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background: #2c67e3;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    line-height: 20vh;
+    font-family: 'Be Vietnam';
+    padding-left: 3vw;
+    font-size: 2vw;
+    -webkit-user-select: none;
+}
 /* Article and Aside elements */
 /* Light Styles (Default) */
 .wrapper {
@@ -379,6 +391,9 @@ body.sd-dark-theme footer.sd-footer {
     color: #eee;
     background: #555;
 }
+body.sd-dark-theme footer a {
+    color: #20add8;
+}
 /* This is also part of the navigation styles */
 .sd-nav.js-nav-open {
     background: #fff!important;
@@ -409,7 +424,7 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
     z-index: 100000;
     overflow: auto;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .sd-side-nav button.js-menuopen {
     background: rgba(0, 0, 0, 0.025);
@@ -436,7 +451,7 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
     border: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-align: left;
     padding-left: 3vw;
     overflow: hidden;
@@ -459,7 +474,7 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
     outline: none;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-right: 16px;
     display: inline-block;
     overflow: hidden;
@@ -521,13 +536,13 @@ body.sd-dark-theme .sd-side-nav a.sd-co {
 .sd-side-nav button i {
     float: right;
     margin-right: 20px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .sd-side-nav div.sd-side-nav-menu {
     background: #eee;
     overflow: hidden;
     height: 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
     background: #555;
@@ -562,7 +577,7 @@ body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
     text-transform: uppercase;
     cursor: pointer;
     outline: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     position: relative;
@@ -656,11 +671,11 @@ body.sd-dark-theme button.sd-button.sd-button-raised:active {
     background: #fff;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     transform: scale(0);
 }
 .sd-dialog > * {
-    transform: 0.3s ease;
+    transform: 0.2s ease;
 }
 .sd-dialog-header {
     background: #eee;
@@ -695,7 +710,7 @@ body.sd-dark-theme button.sd-button.sd-button-raised:active {
     outline: none;
     background: transparent;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 .sd-dialog .sd-dialog-header .sd-dialog-close:hover {
     background: rgba(0, 0, 0, 0.2);
@@ -736,7 +751,7 @@ body.sd-dark-theme .sd-dialog-message {
     background: #333;
     opacity: 0.4;
     border-radius: 50%;
-    transition: all 0.5s cubic-bezier(0.1, 0.1, 0.001, 1);
+    transition: all 0.5s cubic-bezier(0.01, 0.1, 0.001, 1);
     position: absolute;
     transform: scale(0);
 }
@@ -781,6 +796,174 @@ body.sd-dark-theme .sd-button.sd-button-primary:hover {
 body.sd-dark-theme .sd-button.sd-button-accent:hover {
     background: #ff69b411;
 }
-.sd-card-footer button {
-       vertical-align: middle;
+sd-opts button.opt-selected .sd-js-ripple {
+    background: #2c67e399;
+}
+/* Input and TextArea boxes */
+input[type=text], input[type=password], textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0 , 0.3);
+    height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    min-width: 150px;
+    outline: none;
+    color: #333;
+    transition: all 0.2s ease;
+    font-size: 1em;
+}
+input::-webkit-input-placeholder {
+    color: #888;
+}
+label {
+    color: #888;
+    position: absolute;
+    left: 16px;
+    cursor: text;
+    top: 12px;
+    transition: all 0.2s ease;
+}
+.sd-input-wrapper {
+    position: relative;
+    padding-bottom: 16px;
+    display: inline-block;
+}
+input:focus {
+    background: rgba(0, 0, 0, 0.04);
+}
+.sd-input-wrapper input:focus {
+    box-shadow: none;
+}
+.sd-input-wrapper .sd-input-bars {
+    position: relative;
+    display: block;
+    min-width: 150px;
+}
+.sd-input-wrapper .sd-input-bars:before, .sd-input-wrapper .sd-input-bars:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: #2c67e3;
+    transition: all 0.2s ease;
+}
+.sd-input-wrapper .sd-input-bars:before {
+    left: 50%;
+}
+.sd-input-wrapper .sd-input-bars:after {
+    right: 50%;
+}
+input:focus ~ .sd-input-bars:before, input:focus ~ .sd-input-bars:after {
+    width: 50%;
+}
+.sd-input-wrapper.sd-accent .sd-input-bars:before, .sd-input-wrapper.sd-accent .sd-input-bars:after {
+    background: #ff69b4;
+}
+body.sd-dark-theme input {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+body.sd-dark-theme input:focus {
+    background: rgba(255, 255, 255, 0.04);
+}
+/* Selects */
+sd-select {
+    display: inline-block;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    min-width: 25px;
+    height: 25px;
+    transition: all 0.2s ease;
+    line-height: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 8px;
+    position: realtive;
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: 0.83em;
+    -webkit-user-select: none;
+}
+sd-select i {
+    padding-top: 5px;
+    float: right;
+}
+sd-select:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+
+sd-opts {
+    min-width: 50px;
+    display: block;
+    background: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08);
+    width: fit-content;
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    border-radius: 5px;
+    transition: height 0.2s ease;
+    z-index: 10000000;
+    top: 0;
+    left: 0;
+}
+sd-opts button {
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 8px;
+    min-height: 30px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    color: #333;
+    text-align: left;
+    width: 100%;
+    display: block;
+    transition: all 0.2s ease;
+}
+sd-opts button:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+sd-opts button:active {
+    background: rgba(0, 0, 0, 0.05);
+}
+sd-opts button.opt-selected {
+    background: #2c67e322;
+    color: #2c67e3;
+}
+sd-opts *:first-of-type {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+sd-opts *:last-of-type {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+sd-opts button.opt-selected:hover {
+    background: #2c67e333;
+}
+body.sd-dark-theme sd-select {
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+body.sd-dark-theme sd-opts {
+    background: #555;
+}
+body.sd-dark-theme sd-opts button {
+    color: #fff;
+}
+body.sd-dark-theme sd-opts button.opt-selected {
+    background: #2c67e344;
+    color: #20add8;
+}
+sd-opts button:disabled {
+    color: #999;
 }

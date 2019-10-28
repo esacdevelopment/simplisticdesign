@@ -56,10 +56,8 @@
                         one page. This project was started on 10/10/2019 and is still in progress.
                     </p>
                     <div class="sd-card-footer">
-                        <button class="sd-button sd-button-primary sd-button-ripple" onClick="view()" data-url="examples/elements.html">View</button>
-                        <span class="sd-align-right">
-                            By Isaac
-                        </span>
+                        <button class="sd-button sd-button-primary sd-button-ripple" onClick="view()"
+                            data-url="examples/elements.html">View</button>
                     </div>
                 </div>
             </p>
@@ -80,7 +78,7 @@
         <code>Using &lt;a href="https://esacdevelopment.github.io/simplisticdesign/"&gt;Simplistic Design&lt;/a&gt; by Isaac Maddox</code>
     </footer>
     <script>
-        $(document).on('click', '.sd-card-footer button', function() {
+        $(document).on('click', '.sd-card-footer button', function () {
             if ($(this).data('url') !== undefined) {
                 window.location = $(this).data('url');
             };

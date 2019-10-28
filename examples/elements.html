@@ -53,6 +53,11 @@
         body.sd-dark-theme .ele {
             color: #13F1E9;
         }
+
+        .sd-section-header {
+            background: url('../images/headerback_no_words.png') !important;
+            background-size: cover;
+        }
     </style>
 </head>
 
@@ -182,6 +187,59 @@
                     note:</strong> this is only the case for this page because I specified an onClick attribute for the
                 button. This is not the <em>default</em> behavior of the button.
             </p>
+            <h2 id="inputs">Text Boxes</h2>
+            <p>
+                Text boxes are simply areas where a user can edit text on a webpage.
+            </p>
+            <p>
+                <input type="text" placeholder="Regular Input">
+                <div class="sd-input-wrapper">
+                    <label for="upex">Moving Placeholder</label>
+                    <input type="text" id="upex" />
+                </div><br />
+                <div class="sd-input-wrapper sd-accent">
+                    <label for="accex">Accent</label>
+                    <input type="text" id="accex" />
+                </div><br />
+                <div class="sd-input-wrapper">
+                    <input type="text" id="priun" placeholder="Only Underline" />
+                    <div class="sd-input-bars"></div>
+                </div><br />
+                <div class="sd-input-wrapper">
+                    <label for="both">Floating and Underline</label>
+                    <input type="text" id="both" />
+                    <div class="sd-input-bars"></div>
+                </div><br />
+                <div class="sd-input-wrapper sd-accent">
+                    <label for="s">Accent Underline</label>
+                    <input type="text" id="s" />
+                    <div class="sd-input-bars"></div>
+                </div><br />
+            </p>
+            <h2>Select Element*</h2>
+            <p>
+                <sd-select data-menu="cars1"></sd-select>
+                <sd-opts id="cars1">
+                    <button disabled>Car...</button>
+                    <button>Ford</button>
+                    <button>Acura</button>
+                    <button>Audi</button>
+                    <button>BMW</button>
+                    <button>Volkswagon</button>
+                    <button>Dodge</button>
+                    <button>Bugatti</button>
+                    <button>Buick</button>
+                    <button>Honda</button>
+                    <button>Hyundai</button>
+                    <button>Lexus</button>
+                    <button>Nissan</button>
+                </sd-opts>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </p>
         </article>
         <aside>
             <h3>This is an aside</h3>
@@ -196,7 +254,8 @@
     <footer class="sd-footer">
         Simplistic Design was made by Isaac Maddox. <a href="../creator.html">About Isaac</a> | This page does
         <strong>not</strong> include how to make the elements. For that, click <a href="../syntax/index.html">here</a>
-        <em>(not finished)</em>.
+        <em>(not finished)</em>.<br />
+        * This element uses a custom simplistic design element
     </footer>
     <script>
         function changeTheme() {
