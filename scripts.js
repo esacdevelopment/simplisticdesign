@@ -279,7 +279,7 @@ $(document).on("focus", '.sd-input-wrapper input', function () {
 var btncnt = 0;
 var settheheightto = 0;
 // Select Boxes 
-$(document).on('click', 'body *', function (e) {
+$(document).on('click', 'body *:not(.wrapper)', function (e) {
     e.stopPropagation();
     if (!$(this).hasClass('sd-js-select')) {
         $("sd-opts").css('height', '0');
