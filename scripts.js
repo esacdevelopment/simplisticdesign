@@ -18,7 +18,7 @@ $(document).ready(function () {
             }
         });
     });
-}).on('click', '*:not(.sd-side-nav):not(.sd-dialog)', function (e) {
+}).on('click', '*:not(.sd-side-nav):not(.sd-dialog), article', function (e) {
     if (parseInt($('.sd-side-nav').css('left')) == 0) {
         if (parseInt($('body').css('width')) > 720) {
             $("body > *").css('filter', 'blur(0px)');
