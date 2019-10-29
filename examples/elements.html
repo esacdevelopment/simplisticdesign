@@ -99,7 +99,7 @@
     </header>
     <div class="wrapper" hasAside="true">
         <article>
-            <h1>Simplistic Design Elements</h1>
+            <h1 class="sd-highlight">Simplistic Design Elements</h1>
             <h2>Please Keep in Mind...</h2>
             <p>
                 This page is SOLELY for the use of showing off the elements with a brief description on how they work.
@@ -218,27 +218,12 @@
             </p>
             <h2>Select Element*</h2>
             <p>
-                <sd-select data-menu="cars1"></sd-select>
-                <sd-opts id="cars1">
-                    <button disabled>Car...</button>
-                    <button>Ford</button>
-                    <button>Acura</button>
-                    <button>Audi</button>
-                    <button>BMW</button>
-                    <button>Volkswagon</button>
-                    <button>Dodge</button>
-                    <button>Bugatti</button>
-                    <button>Buick</button>
-                    <button>Honda</button>
-                    <button>Hyundai</button>
-                    <button>Lexus</button>
-                    <button>Nissan</button>
-                </sd-opts>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                <select id="cars">
+                    <option value="1">Ford</option>
+                    <option value="2">Chevrolet</option>
+                    <option value="3">Honda</option>
+                </select>
+                <sd-select data-select="cars"></sd-select>
             </p>
         </article>
         <aside>

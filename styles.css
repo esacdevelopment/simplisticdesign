@@ -299,9 +299,12 @@ div.sd-section-header {
 .wrapper aside a {
     word-wrap: break-word;
 }
-.wrapper article h2, .wrapper article h3, .wrapper article h4, .wrapper article h5, .wrapper article h6  {
+.wrapper article h1, .wrapper article h2, .wrapper article h3, .wrapper article h4, .wrapper article h5, .wrapper article h6  {
     color: #333;
     font-family: "Be Vietnam", sans-serif;
+    padding-right: 16px;
+    width: fit-content;
+    padding-left: 8px;
 }
 .wrapper aside h3 {
     font-family: 'Be Vietnam', sans-serif;
@@ -312,7 +315,7 @@ body.sd-dark-theme .wrapper {
 body.sd-dark-theme .wrapper article {
     color: #ddd;
 }
-body.sd-dark-theme .wrapper article h2, body.sd-dark-theme .wrapper article h3, body.sd-dark-theme .wrapper article h4, body.sd-dark-theme .wrapper article h5, body.sd-dark-theme .wrapper article h6 {
+body.sd-dark-theme .wrapper article h1, body.sd-dark-theme .wrapper article h2, body.sd-dark-theme .wrapper article h3, body.sd-dark-theme .wrapper article h4, body.sd-dark-theme .wrapper article h5, body.sd-dark-theme .wrapper article h6 {
     color: #fff;
 }
 body.sd-dark-theme .wrapper aside {
@@ -961,9 +964,19 @@ body.sd-dark-theme sd-opts button {
     color: #fff;
 }
 body.sd-dark-theme sd-opts button.opt-selected {
-    background: #2c67e344;
+    background: #20add822;
     color: #20add8;
 }
 sd-opts button:disabled {
     color: #999;
+}
+/* "Highlighting" the headers */
+.wrapper h1.sd-highlight, .wrapper h2.sd-highlight, .wrapper h3.sd-highlight, .wrapper h4.sd-highlight, .wrapper h5.sd-highlight, .wrapper h6.sd-highlight {
+    background: linear-gradient(transparent 60%, #2c67e344 40%);
+}
+body.sd-dark-theme .wrapper h1.sd-highlight, body.sd-dark-theme .wrapper h2.sd-highlight, body.sd-dark-theme .wrapper h3.sd-highlight, body.sd-dark-theme .wrapper h4.sd-highlight, body.sd-dark-theme .wrapper h5.sd-highlight, body.sd-dark-theme .wrapper h6.sd-highlight {
+    background: linear-gradient(transparent 60%, #20add844 40%);
+}
+.wrapper h1.sd-highlight-accent, .wrapper h2.sd-highlight-accent, .wrapper h3.sd-highlight-accent, .wrapper h4.sd-highlight-accent, .wrapper h5.sd-highlight-accent, .wrapper h6.sd-highlight-accent {
+    background: linear-gradient(transparent 60%, #ff69b444 40%);
 }

@@ -279,32 +279,17 @@ $(document).on("focus", '.sd-input-wrapper input', function () {
 var btncnt = 0;
 var settheheightto = 0;
 // Select Boxes 
-$(document).ready(function () {
-    var btnsetvalofselect = false;
-    $("sd-select").each(function () {
-        var h = $(this).css('height');
-        var menu = $("sd-opts#" + $(this).data('menu'));
-        if (menu.length) {
-            var w = parseInt(menu.css('width'));
-            menu.css('width', parseInt(menu.css('width')) + 16 + 'px');
-            $(this).css('width', w + 'px');
-            menu.children('button').each(function () {
-                if ($(this).hasClass('opt-selected')) {
-                    btnsetvalofselect = true;
-                }
-            });
-            if (btnsetvalofselect === false) {
-                menu.children('button:first-of-type').addClass('opt-selected');
-            }
-            $(this).html(menu.children('button.opt-selected').html());
-            menu.children('button').css('height', parseInt(h) + 16 + 'px');
-        }
-    });
-}).on('click', 'sd-select', function () {
+$(document).on('click', 'body *', function (e) {
+    e.stopPropagation();
+    if (!$(this).hasClass('sd-js-select')) {
+        $("sd-opts").css('height', '0');
+    }
+});
+$(document).on('click', 'sd-select', function () {
     btncnt = 0;
     var off = 0;
     var sel = false;
-    var menu = $("sd-opts#" + $(this).data('menu'));
+    var menu = $("sd-opts#opts_" + $(this).data('select'));
     if (menu.length) {
         menu.children("button").each(function () {
             btncnt++;
@@ -321,7 +306,7 @@ $(document).ready(function () {
         menu.css('height', settheheightto + 'px');
     }
     var x = $(this).offset().left;
-    var y = $(this).offset().top - off * height;
+    var y = $(this).offset().top - (off * height);
 
     menu.css('left', x).css('top', y);
     if (settheheightto + y - $(document).scrollTop() > $(window).height()) {
@@ -329,14 +314,52 @@ $(document).ready(function () {
         menu.css('top', calc);
     }
 });
+
+$(document).ready(function () {
+    $("sd-select").each(function () {
+        var id = $(this).data('select'); // cars
+        $("body").append('<sd-opts id="opts_' + id + '"></sd-opts>'); // add custom sd-opts element
+        $("select#" + id + " option").each(function () { // for each option in the actual select, 
+            $(this).parent().css('display', 'none'); // Hide the select element
+            var val = $(this).attr('value'); // get the value of the select option
+            $("sd-opts#opts_" + id).append('<button data-value="' + val + '">' + $(this).html() + '</button>'); // add the button to the custom opts element
+        });
+    });
+});
 $(document).on('click', 'sd-opts button', function () {
     var btnval = $(this).html();
     var id = $(this).parent().prop('id');
+    var optval = $(this).data('value');
+    var setid = id.replace('opts_', '');
     $(this).parent().children('button').removeClass('opt-selected');
     $(this).addClass('opt-selected');
-    $("sd-select[data-menu='" + id + "']").html(btnval + "<i class='fa fa-chevron-down'></i>").attr('data-val', btnval);
+    $("sd-select[data-select='" + setid + "']").html(btnval + "<i class='fa fa-chevron-down'></i>").attr('data-val', btnval);
     $(this).parent().css('height', '0');
+    // Set the actual select value
+    $("select#" + setid).val(optval);
+});
+$(document).ready(function () {
+    var btnsetvalofselect = false;
+    $("sd-select").each(function () {
+        var h = $(this).css('height');
+        var menu = $("sd-opts#opts_" + $(this).data('select'));
+        if (menu.length) {
+            var w = parseInt(menu.css('width'));
+            menu.css('width', parseInt(menu.css('width')) + 16 + 'px');
+            $(this).css('width', w + 'px');
+            menu.children('button').each(function () {
+                if ($(this).hasClass('opt-selected')) {
+                    btnsetvalofselect = true;
+                }
+            });
+            if (btnsetvalofselect === false) {
+                menu.children('button:first-of-type').addClass('opt-selected');
+            }
+            $(this).html(menu.children('button.opt-selected').html());
+            menu.children('button').css('height', parseInt(h) + 16 + 'px');
+        }
+    });
 });
 $(document).ready(function () {
     $("sd-select").append('<i class="fa fa-chevron-down"></i>');
-});
+})
