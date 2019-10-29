@@ -362,4 +362,9 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
     $("sd-select").append('<i class="fa fa-chevron-down"></i>');
-})
+});
+$(document).ready(function () {
+    if (!$(".sd-page-header").length) {
+        $(".wrapper").css('padding-top', '80px');
+    }
+});
