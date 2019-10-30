@@ -313,6 +313,9 @@ $(document).on('click', 'sd-select', function () {
         var calc = y - settheheightto + (off + 1) * height;
         menu.css('top', calc);
     }
+    if ($(this).css('top') == 0) {
+        alert();
+    }
 });
 
 $(document).ready(function () {
@@ -368,3 +371,4 @@ $(document).ready(function () {
         $(".wrapper").css('padding-top', '80px');
     }
 });
+
