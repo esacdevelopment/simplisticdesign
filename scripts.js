@@ -313,6 +313,7 @@ $(document).on('click', 'sd-select', function () {
         var calc = y - settheheightto + (off + 1) * height;
         menu.css('top', calc);
     }
+     alert(parseInt(menu.css('top'));
     if (parseInt(menu.css('top') == 0)) {
         alert();
     }
