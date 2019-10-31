@@ -30,7 +30,7 @@ a {
     border-radius: 5px;
 }
 *::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 5px;
 }
 body.sd-dark-theme *::-webkit-scrollbar {
@@ -376,11 +376,16 @@ div.sd-card div.sd-card-footer {
     padding: 8px;
     position: absolute;
     bottom: 0;
+    display: flex;
+    align-items: center;
     border-radius: 5px;
     width: calc(100% - 16px);
 }
 body.sd-dark-theme div.sd-card div.sd-card-footer {
     background: #555;
+}
+.sd-card .sd-card-footer .sd-align-right {
+    float: left!important;
 }
 /* Page Footer */
 footer.sd-footer {
@@ -806,7 +811,7 @@ sd-opts button.opt-selected .sd-js-ripple {
 input[type=text], input[type=password], textarea {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0 , 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0 , 0.3);
     height: 40px;
     padding-left: 16px;
     padding-right: 16px;
@@ -861,22 +866,34 @@ input:focus {
 input:focus ~ .sd-input-bars:before, input:focus ~ .sd-input-bars:after {
     width: 50%;
 }
+textarea:focus ~ .sd-input-bars:before {
+    width: 50%;
+}
+textarea:focus ~ .sd-input-bars:after {
+    width: 50%;
+}
 .sd-input-wrapper.sd-accent .sd-input-bars:before, .sd-input-wrapper.sd-accent .sd-input-bars:after {
     background: #ff69b4;
 }
 body.sd-dark-theme input {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     color: #fff;
 }
 body.sd-dark-theme input:focus {
     background: rgba(255, 255, 255, 0.04);
+}
+.sd-input-wrapper.sd-textarea-wrapper .sd-input-bars {
+    bottom: 4px;
+}
+.sd-input-wrapper textarea {
+    width: 150px;
 }
 /* Selects */
 sd-select {
     display: inline-block;
     border: none;
     background: transparent;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
     min-width: 25px;
     height: 25px;
     transition: all 0.2s ease;
@@ -898,6 +915,9 @@ sd-select i {
 sd-select:hover {
     background: rgba(0, 0, 0, 0.04);
 }
+body.sd-dark-theme sd-select.sd-js-menuopen {
+    border-bottom-color: #20add8!important;
+}
 
 
 sd-opts {
@@ -909,7 +929,6 @@ sd-opts {
     position: absolute;
     overflow: hidden;
     height: 0;
-    border-radius: 5px;
     transition: height 0.2s ease;
     z-index: 10000000;
     top: 0;
@@ -943,14 +962,6 @@ sd-opts button.opt-selected {
     background: #2c67e322;
     color: #2c67e3;
 }
-sd-opts *:first-of-type {
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-}
-sd-opts *:last-of-type {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
 sd-opts button.opt-selected:hover {
     background: #2c67e333;
 }
@@ -979,4 +990,7 @@ body.sd-dark-theme .wrapper h1.sd-highlight, body.sd-dark-theme .wrapper h2.sd-h
 }
 .wrapper h1.sd-highlight-accent, .wrapper h2.sd-highlight-accent, .wrapper h3.sd-highlight-accent, .wrapper h4.sd-highlight-accent, .wrapper h5.sd-highlight-accent, .wrapper h6.sd-highlight-accent {
     background: linear-gradient(transparent 60%, #ff69b444 40%);
+}
+sd-select.sd-js-menuopen {
+    border-bottom-color: #2c67e3;
 }

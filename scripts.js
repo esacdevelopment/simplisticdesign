@@ -18,13 +18,6 @@ $(document).ready(function () {
             }
         });
     });
-}).on('mousedown', '*:not(.sd-side-nav)', function (e) {
-    if (parseInt($('.sd-side-nav').css('left')) == 0) {
-        if (parseInt($('body').css('width')) > 720) {
-            $("body > *").css('filter', 'blur(0px)');
-            $(".sd-side-nav").css('left', '-100vw');
-        }
-    }
 });
 $(document).ready(function () {
     // Determine the navbar's background:
@@ -282,15 +275,18 @@ var settheheightto = 0;
 $(document).on('click', 'body *:not(.wrapper)', function (e) {
     e.stopPropagation();
     if (!$(this).hasClass('sd-js-select')) {
-        $("sd-opts").css('height', '0');
+        $("sd-opts").css('height', '0').css('overflow', 'hidden');
+        $("sd-select").removeClass('sd-js-menuopen');
     }
 });
+var seltop;
 $(document).on('click', 'sd-select', function () {
     btncnt = 0;
     var off = 0;
     var sel = false;
     var menu = $("sd-opts#opts_" + $(this).data('select'));
     if (menu.length) {
+        $(this).addClass('sd-js-menuopen');
         menu.children("button").each(function () {
             btncnt++;
             if ($(this).hasClass('opt-selected')) {
@@ -313,8 +309,9 @@ $(document).on('click', 'sd-select', function () {
         var calc = y - settheheightto + (off + 1) * height;
         menu.css('top', calc);
     }
-    if (parseInt(menu.css('top')) < 0) {
-        alert();
+    if (parseInt(menu.css('top')) - $(document).scrollTop() < 0) {
+        seltop = parseInt($(this).offset().top) - $(document).scrollTop();
+        menu.css('height', seltop + 'px').css('top', $(document).scrollTop()).css('overflow', 'auto');
     }
 });
 
@@ -371,4 +368,11 @@ $(document).ready(function () {
         $(".wrapper").css('padding-top', '80px');
     }
 });
-
+$(document).on('click', '*:not(.sd-side-nav):not(.sd-side-nav button)', function (e) {
+    if (parseInt($('.sd-side-nav').css('left')) == 0) {
+        if (parseInt($('body').css('width')) > 720) {
+            $("body > *").css('filter', 'blur(0px)');
+            $(".sd-side-nav").css('left', '-100vw');
+        }
+    }
+});
