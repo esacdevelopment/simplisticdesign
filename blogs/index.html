@@ -206,6 +206,9 @@
             var yr = d.getFullYear();
             $(".output-code").html('&lt;div class="post"&gt;&lt;div class="post-header"&gt;&lt;img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" /&gt;&lt;div class="posted-by"&gt;' + poster + '&lt;/div&gt;&lt;div class="posted-at"&gt;' + month + '/' + day + '/' + yr + '&lt;/div&gt;&lt;/div&gt;&lt;h2&gt;' + title + '&lt/h2&gt;&lt;div class="post-message"&gt;' + msg + '&lt;/div&gt;&lt;/div&gt;');
         });
+        $(document).ready(function() {
+            $(".sd-nav button").addClass('sd-button-ripple');
+        });
     </script>
 </body>
 
