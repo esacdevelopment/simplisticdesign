@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="shortcut icon" href="../images/favicon.ico">
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
     <script src="../scripts.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
@@ -96,6 +97,7 @@
             top: 20vh;
             left: 20vw;
             border-radius: 10px;
+            overflow: auto;
             padding: 30px;
         }
     </style>
@@ -110,10 +112,23 @@
         Simplistic Blogs
     </header>
     <div class="post">
+        <div class="post-header"><img src="../images/blog_profile.jpg" height="50" width="50" class="post-img" />
+            <div class="posted-by">Isaac Maddox</div>
+            <div class="posted-at">10/31/2019</div>
+        </div>
+        <h2>Currently in Progress...</h2>
+        <div class="post-message">I am currently working on the checkboxes and radio input types. So far, the checkboxes
+            work, and the developer can specify to make the options for the checkbox cross out and gray when the check
+            box
+            is selected. I do not currently have the dark mode styles done. I will send an update when the checkboxes
+            are
+            out, and I will also update the elements page.</div>
+    </div>
+    <div class="post">
         <div class="post-header">
             <img class="post-img" src="../images/blog_profile.jpg" height="50" width="50" alt="Profile Picture" />
             <div class="posted-by">Isaac Maddox</div>
-            <div class="posted-at">9:08pm on 10/30/2019</div>
+            <div class="posted-at">10/30/2019</div>
         </div>
         <h2>Latest Release</h2>
         <div class="post-message">
@@ -127,7 +142,7 @@
         <div class="post-header">
             <img class="post-img" src="../images/blog_profile.jpg" height="50" width="50" alt="Profile Picture" />
             <div class="posted-by">Isaac Maddox</div>
-            <div class="posted-at">9:08pm on 10/30/2019</div>
+            <div class="posted-at">10/30/2019</div>
         </div>
         <h2>Welcome! </h2>
         <div class="post-message">
@@ -143,19 +158,37 @@
             <input type="text" id="name" />
             <div class="sd-input-bars"></div>
         </div><br />
+        <div class="sd-input-wrapper">
+            <label for="title">Title</label>
+            <input type="text" id="title" />
+            <div class="sd-input-bars"></div>
+        </div><br />
         <div class="sd-input-wrapper sd-textarea-wrapper">
-            <textarea placeholder="Type the message here..."></textarea>
+            <textarea placeholder="Type the message here..." id="msg"></textarea>
             <div class="sd-input-bars"></div>
         </div><br /><br />
-        <button class="sd-button sd-button-raised sd-button-ripple">
+        <button class="sd-button sd-button-raised sd-button-ripple" id="makepost">
             Create HTML for Post
         </button>
+        <br />
+        <br />
+        <div class="output-code"></div>
     </div>
     <script>
         $(document).on('keydown', function (e) {
             if (e.ctrlKey && e.shiftKey && e.keyCode == 90) {
                 $(".secret-popup").css('display', 'block');
             }
+        });
+        $(document).on('click', '#makepost', function () {
+            var poster = $("#name").val();
+            var title = $("#title").val();
+            var msg = $("#msg").val();
+            var d = new Date();
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+            var yr = d.getFullYear();
+            $(".output-code").html('&lt;div class="post"&gt;&lt;div class="post-header"&gt;&lt;img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" /&gt;&lt;div class="posted-by"&gt;' + poster + '&lt;/div&gt;&lt;div class="posted-at"&gt;' + month + '/' + day + '/' + yr + '&lt;/div&gt;&lt;/div&gt;&lt;h2&gt;' + title + '&lt/h2&gt;&lt;div class="post-message"&gt;' + msg + '&lt;/div&gt;&lt;/div&gt;');
         });
     </script>
 </body>
