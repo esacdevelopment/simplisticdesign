@@ -221,7 +221,7 @@ $(document).on('mousedown touchdown', 'button.sd-button-ripple', function (e) {
     buttonheight = Math.max(
         parseInt($(this).css('height')),
         parseInt($(this).css('width'))
-    ) * 2.4;
+    ) * 2.5;
     var ex = e.clientX - $(this).offset().left - buttonheight / 2;
     var why = e.pageY - $(this).offset().top - buttonheight / 2;
     $(this).append('<div class="sd-js-ripple" id="' + buttonid + '"></div>');
@@ -373,6 +373,59 @@ $(document).on('click', '*:not(.sd-side-nav):not(.sd-side-nav button)', function
         if (parseInt($('body').css('width')) > 720) {
             $("body > *").css('filter', 'blur(0px)');
             $(".sd-side-nav").css('left', '-100vw');
+        }
+    }
+});
+// Checkboxes
+$(document).ready(function () {
+    $("input[type=checkbox]").each(function () {
+        var sdbox = $("sd-checkbox[data-box=" + $(this).attr('name') + "]");
+        if (sdbox.length) {
+            $(this).css('display', 'none');
+            sdbox.append('<i class="fa fa-check"></i>').children('i').css('opacity', '0');
+            if ($(this).prop('checked') === true) {
+                sdbox.addClass('sd-box-checked');
+                sdbox.children('i').css('opacity', '1');
+                if (sdbox.parent(".sd-remove").length) {
+                    sdbox.parent('.sd-remove').children('span').addClass('sd-js-removed');
+                }
+            }
+        }
+    });
+}).on('click', 'sd-checkbox, sd-checkbox i', function () {
+    if ($(this).hasClass('fa')) {
+        var check = $("input[type=checkbox][name=" + $(this).parent().data('box') + "]");
+        if (check.length) {
+            if ($(this).parent().hasClass('sd-box-checked')) {
+                $(this).parent().removeClass('sd-box-checked').children('i').css('opacity', '0');
+                check.attr('checked', false);
+                if ($(this).parent().parent(".sd-remove").length) {
+                    $(this).parent().parent().children('span').removeClass('sd-js-removed');
+                }
+            } else {
+                $(this).parent().addClass('sd-box-checked').children('i').css('opacity', '1');
+                check.attr('checked', true);
+                if ($(this).parent().parent(".sd-remove").length) {
+                    $(this).parent().parent().children('span').addClass('sd-js-removed');
+                }
+            }
+        }
+    } else {
+        var check = $("input[type=checkbox][name=" + $(this).data('box') + "]");
+        if (check.length) {
+            if ($(this).hasClass('sd-box-checked')) {
+                $(this).removeClass('sd-box-checked').children('i').css('opacity', '0');
+                check.attr('checked', false);
+                if ($(this).parent(".sd-remove").length) {
+                    $(this).parent().children('span').removeClass("sd-js-removed");
+                }
+            } else {
+                $(this).addClass('sd-box-checked').children('i').css('opacity', '1');
+                check.attr('checked', true);
+                if ($(this).parent(".sd-remove").length) {
+                    $(this).parent().children('span').addClass('sd-js-removed');
+                }
+            }
         }
     }
 });

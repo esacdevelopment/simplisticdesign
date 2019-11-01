@@ -425,7 +425,7 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
     height: 100vh;
     padding-top: 16px;
     position: fixed;
-    width: 25vw;
+    width: 400px;
     background: #fff;
     top: 0;
     left: -100vw;
@@ -450,7 +450,7 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
 }
 .sd-side-nav button {
     height: 8vh;
-    width: 25vw;
+    width: 100%;
     background: transparent;
     color: #333;
     font-family: 'Roboto';
@@ -819,6 +819,7 @@ input[type=text], input[type=password], textarea {
     outline: none;
     color: #333;
     transition: all 0.2s ease;
+    font-family: 'Roboto', sans-serif;
     font-size: 1em;
 }
 input::-webkit-input-placeholder {
@@ -993,4 +994,41 @@ body.sd-dark-theme .wrapper h1.sd-highlight, body.sd-dark-theme .wrapper h2.sd-h
 }
 sd-select.sd-js-menuopen {
     border-bottom-color: #2c67e3;
+}
+/* Check Boxes */
+sd-checkbox {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+    transition: all 0.2s ease;
+    color: #333;
+    margin-right: 10px;
+    position: relative;
+    vertical-align: middle;
+}
+sd-checkbox:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+sd-checkbox.sd-box-checked {
+    border: 2px solid #2c67e3;
+    background: #2c67e322;
+    color: #2c67e3;
+}
+sd-checkbox i {
+    transition: opacity 0.2s ease;
+}
+sd-check-container {
+    line-height: 20px;
+    vertical-align: center;
+    position: relative;
+}
+sd-check-container span.sd-js-removed {
+    color: #a9a9a9;
+    text-decoration: line-through;
+    transition: all 0.1s ease;
 }
