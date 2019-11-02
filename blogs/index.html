@@ -105,8 +105,24 @@
 
 <body>
     <nav class="sd-nav show-header">
-        <a class="sd-nav-co">Simplistic Blogs</a>
-        <button data-icon="home" data-url="../index.html">Home</button>
+        <a class="sd-nav-co" href="../index.html">Simplistic Blogs</a>
+        <button data-url="../index.html" data-icon="home">
+            Home
+        </button><button data-url="../download.html" data-icon="download">
+            Download
+        </button><button data-url="../about.html" data-icon="info">
+            About
+        </button><button data-url="../creator.html" data-icon="user">
+            Creator
+        </button><button data-icon="phone" data-url="../contact.html">
+            Contact
+        </button><button data-url="../examples.html" data-icon="ellipsis-h">
+            Examples
+        </button><button data-url="../faq.html" data-icon="question">
+            FAQ
+        </button><button data-url="blogs/index.html" data-icon="external-link" disabled>
+            Blogs
+        </button>
     </nav>
     <header class="sd-page-header">
         Simplistic Blogs
@@ -209,6 +225,9 @@
             var day = d.getDate();
             var yr = d.getFullYear();
             $(".output-code").html('&lt;div class="post"&gt;&lt;div class="post-header"&gt;&lt;img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" /&gt;&lt;div class="posted-by"&gt;' + poster + '&lt;/div&gt;&lt;div class="posted-at"&gt;' + month + '/' + day + '/' + yr + '&lt;/div&gt;&lt;/div&gt;&lt;h2&gt;' + title + '&lt/h2&gt;&lt;div class="post-message"&gt;' + msg + '&lt;/div&gt;&lt;/div&gt;');
+        });
+        $(document).ready(function() {
+            $(".sd-nav button").addClass('sd-button-ripple');
         });
     </script>
 </body>
