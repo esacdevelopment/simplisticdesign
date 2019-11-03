@@ -273,6 +273,17 @@
                     </span>
                 </sd-check-container>
             </p>
+            <h3>Radio Elements</h3>
+            <p>
+                <input type="radio" name="ex" value="1" id="exradio" />
+                <sd-radio data-radio="exradio"></sd-radio> I'm a radio!<br />
+                <h3>Group (same name)</h3>
+                <input type="radio" name="gender" value="1" id="boy" />
+                <sd-radio data-radio="boy" data-radio-group="gender"></sd-radio> Male<br />
+                <input type="radio" name="gender" value="2" id="girl" />
+                <sd-radio data-radio="girl" data-radio-group="gender"></sd-radio> Female<br />
+                <input type="radio" name="gender" value="3" id="other" />
+                <sd-radio data-radio="other" data-radio-group="gender"></sd-radio> Other<br />
         </article>
         <aside>
             <h3>This is an aside</h3>

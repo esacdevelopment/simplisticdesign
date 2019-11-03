@@ -130,6 +130,27 @@
     <div class="post">
         <div class="post-header"><img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" />
             <div class="posted-by">Isaac Maddox</div>
+            <div class="posted-at">11/2/2019</div>
+        </div>
+        <h2>Beta 1.8</h2>
+        <div class="post-message">In this release, I added some better functionality to the select, so that the options
+            menu
+            can not be too small, allowing for easier selecting. (I hope that made sense) I also added the radio inputs!
+            In
+            order to make them compliant with forms, they have been done in a similar fashion to the inputs and
+            checkboxes:
+            the developer makes the native HTML input type, and, in the case of the radio input, adds an sd-radio
+            element,
+            along with the data-radio attribute. I am now beginning to work on the syntax pages, so you can look there
+            in a
+            couple of days to see how everything works! I hope you enjoy! Please note: the compressed scripts and styles
+            will be updated to v1.0, and then they will be archived and available for all versions before that. :) Good
+            luck
+            and happy coding!</div>
+    </div>
+    <div class="post">
+        <div class="post-header"><img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" />
+            <div class="posted-by">Isaac Maddox</div>
             <div class="posted-at">11/1/2019</div>
         </div>
         <h2>v1.0 Release Date</h2>
@@ -226,7 +247,7 @@
             var yr = d.getFullYear();
             $(".output-code").html('&lt;div class="post"&gt;&lt;div class="post-header"&gt;&lt;img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" /&gt;&lt;div class="posted-by"&gt;' + poster + '&lt;/div&gt;&lt;div class="posted-at"&gt;' + month + '/' + day + '/' + yr + '&lt;/div&gt;&lt;/div&gt;&lt;h2&gt;' + title + '&lt/h2&gt;&lt;div class="post-message"&gt;' + msg + '&lt;/div&gt;&lt;/div&gt;');
         });
-        $(document).ready(function() {
+        $(document).ready(function () {
             $(".sd-nav button").addClass('sd-button-ripple');
         });
     </script>

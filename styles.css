@@ -439,7 +439,7 @@ body.sd-dark-theme .sd-nav.js-nav-open button, body.sd-dark-theme .sd-nav.js-nav
 }
 .sd-side-nav a.sd-co {
     height: 8vh;
-    width: 25vw;
+    width: 100%;
     color: #333;
     text-decoration: none;
     font-family: 'Be Vietnam', serif;
@@ -561,6 +561,7 @@ body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
     }
     .sd-side-nav {
         background: #eee!important;
+        left: -150vw;
     }
     body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
         background: #333;
@@ -720,6 +721,9 @@ body.sd-dark-theme button.sd-button.sd-button-raised:active {
     cursor: pointer;
     transition: all 0.2s ease;
 }
+body.sd-dark-theme .sd-dialog .sd-dialog-header .sd-dialog-close {
+    color: #eee;
+}
 .sd-dialog .sd-dialog-header .sd-dialog-close:hover {
     background: rgba(0, 0, 0, 0.2);
 }
@@ -811,7 +815,7 @@ sd-opts button.opt-selected .sd-js-ripple {
 input[type=text], input[type=password], textarea {
     background: transparent;
     border: none;
-    border-bottom: 2px solid rgba(0, 0, 0 , 0.3);
+    border-bottom: 2px solid rgba(0, 0, 0 , 0.2);
     height: 40px;
     padding-left: 16px;
     padding-right: 16px;
@@ -1000,7 +1004,7 @@ sd-checkbox {
     display: inline-block;
     height: 20px;
     width: 20px;
-    border: 2px solid rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     cursor: pointer;
     text-align: center;
@@ -1031,4 +1035,42 @@ sd-check-container span.sd-js-removed {
     color: #a9a9a9;
     text-decoration: line-through;
     transition: all 0.1s ease;
+}
+body.sd-dark-theme sd-checkbox.sd-box-checked {
+    color: #20add8;
+    border-color: #20add8;
+}
+body.sd-dark-theme sd-checkbox {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+/* Radio Elements */
+sd-radio {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    vertical-align: -35%;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+sd-radio.sd-radio-selected {
+    background: #2c67e322;
+    border-color: #2c67e3;
+}
+sd-radio sd-radio-circle {
+    height: 10px;
+    width: 10px;
+    display: block;
+    background: #2c67e3;
+    border-radius: 50%;
+    margin-top: calc(10px - 10px / 2);
+    margin-left: calc(10px - 10px / 2);
+    transform: scale(0);
+    transition: all 0.1s ease;
+}
+sd-radio.sd-radio-selected sd-radio-circle {
+    transform: scale(1);
 }

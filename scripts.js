@@ -283,7 +283,6 @@ var seltop;
 $(document).on('click', 'sd-select', function () {
     btncnt = 0;
     var off = 0;
-    var sel = false;
     var menu = $("sd-opts#opts_" + $(this).data('select'));
     if (menu.length) {
         $(this).addClass('sd-js-menuopen');
@@ -312,6 +311,13 @@ $(document).on('click', 'sd-select', function () {
     if (parseInt(menu.css('top')) - $(document).scrollTop() < 0) {
         seltop = parseInt($(this).offset().top) - $(document).scrollTop();
         menu.css('height', seltop + 'px').css('top', $(document).scrollTop()).css('overflow', 'auto');
+        if (seltop < height * 5) {
+            if (btncnt >= 5) {
+                menu.css('height', height * 5);
+            } else {
+                menu.css('height', height * btncnt);
+            }
+        }
     }
 });
 
@@ -427,5 +433,38 @@ $(document).ready(function () {
                 }
             }
         }
+    }
+});
+// Radio Inputs
+$(document).ready(function () {
+    $("input[type=radio]").each(function () {
+        var sdradio = $("sd-radio[data-radio='" + $(this).prop('id') + "']");
+        if (sdradio.length) {
+            $(this).css('display', 'none');
+            if ($(this).is(':checked')) {
+                sdradio.addClass('sd-radio-selected');
+            }
+            var innercircle = $(this).children('sd-radio-circle');
+            if (!innercircle.length) {
+                sdradio.append('<sd-radio-circle></sd-radio-circle>');
+            }
+        }
+    });
+}).on('click', 'sd-radio', function () {
+    var actualradio = $("input[type=radio]#" + $(this).data('radio'));
+    if (actualradio.length) {
+        var name = actualradio.attr('name');
+        var c = false;
+        $("input[type=radio][name=" + name + "]").each(function () {
+            if ($(this).attr('checked') == "checked") {
+                c = true;
+            }
+        });
+        if (c === true) {
+            $("input[type=radio][name='" + name + "']").attr('checked', false);
+        }
+        $("sd-radio[data-radio-group='" + name + "']").removeClass('sd-radio-selected');
+        $(this).addClass('sd-radio-selected');
+        $("input[type=radio]#" + $(this).data('radio')).attr('checked', true);
     }
 });
