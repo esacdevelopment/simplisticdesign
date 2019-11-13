@@ -62,7 +62,7 @@
 </head>
 
 <body>
-    <div class=" sd-side-nav">
+    <div class="sd-side-nav">
         <a class="sd-co" href="#">Quick Find...</a>
         <button data-menu="btn_opts">Buttons</button>
         <div class="sd-side-nav-menu" id="btn_opts">
@@ -70,12 +70,13 @@
             <button data-url="#r_buttons">Raised Buttons</button>
             <button data-url="#fabs">Floating Action Buttons</button>
         </div>
-        <button data-url="#nav">Navigation</button>
-        <button data-url="#cards">Cards</button>
-        <button data-url="#dialogs">Dialogs</button>
-    </div>
-    <div class="sd-nav-drop-menu" id="exopts">
-
+        <button data-url="#nav"><i class="fa fa-link"></i>Navigation</button>
+        <button data-url="#cards"><i class="fa fa-square-o"></i>Cards</button>
+        <button data-url="#dialogs"><i class="fa fa-window-maximize"></i>Dialogs</button>
+        <button data-url="#inputs"><i class="fa fa-i-cursor"></i>Text Boxes</button>
+        <button data-url="#select"><i class="fa fa-chevron-down"></i>Select*</button>
+        <button data-url="#checkrad"><i class="fa fa-check"></i>Checkboxes</button>
+        <button data-url="#checkrad"><i class="fa fa-circle-o"></i>Radio</button>
     </div>
     <nav class="sd-nav show-header">
         <button class="sd-show-side-nav sd-button-ripple">
@@ -92,12 +93,14 @@
             Nothing
         </button><button onClick="changeTheme()" data-icon="adjust">
             Change Theme
+        </button><button data-icon="external-link" onClick="syntaxpages()">
+            Syntax
         </button>
     </nav>
     <header class="sd-page-header">
         This is a header
     </header>
-    <div class="wrapper" hasAside="true">
+    <div class="wrapper" data-hasaside="true">
         <article>
             <h1 class="sd-highlight">Simplistic Design Elements</h1>
             <h2>Please Keep in Mind...</h2>
@@ -216,7 +219,7 @@
                     <div class="sd-input-bars"></div>
                 </div><br />
             </p>
-            <h2>Select Element*</h2>
+            <h2 id="select">Select Element*</h2>
             <p>
                 <select id="cars">
                     <option value="1">Ford</option>
@@ -251,7 +254,7 @@
                 </select>
                 <sd-select data-select="lots"></sd-select>
             </p>
-            <h2>Checkboxes and Radio</h2>
+            <h2 id="checkrad">Checkboxes and Radio</h2>
             <p>
                 <input type="checkbox" name="exone" />
                 <sd-checkbox data-box="exone"></sd-checkbox><br /><br />
@@ -316,6 +319,9 @@
         $(document).ready(function () {
             $(".sd-nav button, .sd-side-nav button").addClass("sd-button-ripple");
         });
+        function syntaxpages() {
+            window.location = "../syntax/index.html";
+        }
     </script>
 </body>
 

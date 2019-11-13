@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="styles.css">
     <meta name="description" content="A take on Google's Material Design, Simplistic Design!">
     <link rel="shortcut icon" href="images/favicon.ico">
-    <script src="default.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>Simplistic Design</title>
@@ -45,7 +44,7 @@
     <header class="sd-page-header">
         Download Simplistic Design
     </header>
-    <div class="wrapper" hasAside="true">
+    <div class="wrapper" data-hasaside="true">
         <article>
             <h2>
                 Download Simplistic Design
@@ -119,6 +118,9 @@
     <script>
         $("a.link-no-follow").click(function (e) {
             e.preventDefault();
+        });
+        $(document).ready(function () {
+            $(".sd-nav button").addClass('sd-button-ripple');
         });
     </script>
 </body>

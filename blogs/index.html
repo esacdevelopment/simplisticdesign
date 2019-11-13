@@ -130,6 +130,19 @@
     <div class="post">
         <div class="post-header"><img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" />
             <div class="posted-by">Isaac Maddox</div>
+            <div class="posted-at">11/12/2019</div>
+        </div>
+        <h2>Version 1 is here!</h2>
+        <div class="post-message">Finally! The moment everyone has been waiting for! Okay, at least I have been!
+            Simplistic Design version 1 is here. The documentation is still under construction, but that will be coming
+            as soon as I finish it! I can't wait to see the ways that you all are going to use this library! Remeber, if
+            you do use it, make sure to email me what you use it for so that I can possible feature it! If you have any
+            questions, you can email <a href="mailto:isaacmaddox05@gmail.com">isaacmaddox05@gmail.com</a>. Have fun and
+            good coding!</div>
+    </div>
+    <div class="post">
+        <div class="post-header"><img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" />
+            <div class="posted-by">Isaac Maddox</div>
             <div class="posted-at">11/10/2019</div>
         </div>
         <h2>SD v1.0</h2>
@@ -263,6 +276,10 @@
         });
         $(document).ready(function () {
             $(".sd-nav button").addClass('sd-button-ripple');
+        });
+
+        $(document).ready(function () {
+            $("body").append('<div class="sd-message">Simplistic Design v1.0 is here! <a href="../download.html">Download it here</a>').css('margin-bottom', '25px');
         });
     </script>
 </body>

@@ -11,85 +11,100 @@
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <title>Simplistic Design Syntax: HTML</title>
+
+
+    <title>Simplistic Design - Syntax</title>
     <style>
         .sd-page-header {
-            background: url('../images/headerback_no_words.png');
+            background: url('../images/sectionheader.png');
+            background-position-x: center;
+        }
+
+        code {
+            padding: 8px;
+            background: #fbfbfb;
+            overflow-x: hidden;
+            word-wrap: break-word;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            display: block;
+            width: fit-content;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        body.sd-dark-theme code {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+        }
+
+        table.classes tr,
+        table.classes th {
+            padding: 6px;
+        }
+
+        table.classes th {
+            color: #333;
+            font-family: 'Raleway', serif;
+            border-left: 2px solid #2c67e3;
+        }
+
+        table.classes tr td {
+            text-align: center;
+        }
+
+        table.classes {
+            background: #2c67e333;
+            padding: 8px;
+            border-radius: 5px;
+            min-width: 25vw;
+            box-shadow: 2px 2px 5px #2c67e322;
+            color: #2c67e3;
+        }
+
+        table.classes code {
+            color: #333;
+        }
+
+        .sd-section-header {
+            background-image: url('../images/blog_profile.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed !important;
         }
     </style>
 </head>
 
 <body>
+    <div class="sd-side-nav">
+        <a class="sd-co">Scroll To...</a>
+        <button data-menu="navtypes">Navigation</button>
+        <div class="sd-side-nav-menu" id="navtypes">
+            <button data-url="#topnav">Top Nav</button>
+            <button data-url="#sidenav">Side Nav</button>
+        </div>
+        <button data-menu="layout">Layout</button>
+        <div class="sd-side-nav-menu" id="layout">
+            <button data-url="#pageheader">Page Header</button>
+            <button data-url="#secheader">Section Header</button>
+            <button data-url="#aside">Aside</button>
+        </div>
+    </div>
     <nav class="sd-nav show-header">
-        <a class="sd-nav-co" href="../index.html">Simplistic Design</a>
-        <button data-url="index.html" data-icon="code fa-lg" disabled>HTML Syntax</button>
-        <button data-url="css.html" data-icon="brackets-curly fa-lg">CSS Syntax</button>
-        <button data-url="js.html" data-icon="code fa-lg">JavaScript Syntax</button>
+        <button class="sd-show-side-nav"><i class="fa fa-chevron-right"></i></button>
+        <a class="sd-nav-co" href="index.html">Simplistic Design Syntax</a>
     </nav>
     <header class="sd-page-header">
-        Syntax: HTML
+        Simplistic Design Syntax
     </header>
-    <div class="wrapper" hasAside="true">
+    <div class="wrapper">
         <article>
-            <h2>Basic Syntax</h2>
+            <h2 class="sd-highlight">This page is currently under construction.</h2>
             <p>
-                To use Simplistic Design, there is a basic syntax that you must follow. Of course, the normal HTML
-                syntax
-                applies, so you have to follow that. The basic order that the main elements in the page should go in are
-                as
-                follows:<br />
-                <code>body, dialogs, nav, header, wrapper, (inside wraper): article, aside, (outisde wrapper):
-                footer.</code><br />
-            </p>
-            <p>
-                Of course, all of these elements are optional, and you can technically put the elements in any order
-                that you want, you just might get some funky results. What I put above this is simply a recommendation.
-                The only thing that is 100% required is that you have a
-                <code>&lt;div class="wrapper"&gt;...&lt;/div&gt;</code> that surrounds the article and aside elements.
-            </p>
-            <h2>What if I have an Aside?</h2>
-            <p>
-                If you wish to put an aside, you must add the attribute <code>hasAside="true"</code> to your wrapper.
-                This will tell the code to shrink the main article and to put the aside on the actual side of the page.
-                When the page is in mobile, however, the article will appear in full screen so as to make a more
-                pleasant reading experience for those on mobile. The aside, then, will appear at the bottom of the
-                screen. If you fail to add the attribute <code>hasAside="true"</code> to the div, then the aside will
-                appear at the bottom of the screen no matter what platform the user is viewing the page on.
-            </p>
-            <h2>Navigation Bar</h2>
-            <p>
-                To make the main page navigation bar, create a <code>&lt;nav&gt;</code> element with the class
-                <code>sd-nav</code>. This will make a white navigation bar at the top of the screen, unless you add the
-                <code>show-header</code> class, in which case, the navigation bar will be transparent until you scroll
-                far enough in the page. You see an example of this at the top of the screen now.
+                However, Simplistic Design version 1 <strong>IS HERE!</strong> You can download it <a
+                    href="../download.html">here</a>.
             </p>
         </article>
-        <aside>
-            <h2>Isaac Maddox</h2>
-            <p>
-                Isaac is a Web Developer, and the founder of Simplistic Design. He specializes in HTML, CSS, and
-                JavaScript. Isaac started coding when he was nine, and has continued to this day, and he is currently
-                <span class="my_age"></span> years old. If you want to see more information about Isaac, visit the <a
-                    href="../creator.html">page about Isaac</a>.
-            </p>
-        </aside>
     </div>
-    <script>
-        var d = new Date();
-        var month = d.getMonth() + 1;
-        var year = d.getFullYear();
-        var yrs = year - 2005;
-        if (month > 9) {
-            $("span.my_age").html(yrs);
-        } else {
-            $("span.my_age").html(yrs - 1);
-        }
-        createDialog("warning", 'Warning!', "This page is still being made. You can still view it if you want to, just know that you will not be able to find some of the information that you might want to here. Thanks!", ["Go to main page", "View this Page"], ["main()", "hideDialog('warning')"]);
-        showDialog('warning');
-        function main() {
-            window.location.href = "../index.html";
-        }
-    </script>
 </body>
 
 </html>
