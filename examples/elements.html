@@ -83,19 +83,21 @@
             <i class="fa fa-bars"></i>
         </button>
         <a class="sd-nav-co" href="#">Navigation Bar</a>
-        <button data-icon="check" disabled>
-            Selected
-        </button><button data-icon="question">
-            Button
-        </button><button data-icon="question">
-            Another One
-        </button><button data-icon="chevron-down">
-            Nothing
-        </button><button onClick="changeTheme()" data-icon="adjust">
-            Change Theme
-        </button><button data-icon="external-link" onClick="syntaxpages()">
-            Syntax
-        </button>
+        <span class="sd-nav-button-container">
+            <button data-icon="check" disabled>
+                Selected
+            </button><button data-icon="question">
+                Button
+            </button><button data-icon="question">
+                Another One
+            </button><button data-icon="chevron-down">
+                Nothing
+            </button><button onClick="changeTheme()" data-icon="adjust">
+                Change Theme
+            </button><button data-icon="external-link" onClick="syntaxpages()">
+                Syntax
+            </button>
+        </span>
     </nav>
     <header class="sd-page-header">
         This is a header
@@ -242,7 +244,7 @@
                     <option value="9">Option Nine</option>
                     <option value="10">Option Ten</option>
                     <option value="11">Option Eleven</option>
-                    <option value="12">Option Twelve</option>
+                    <option value="12" selected>Option Twelve</option>
                     <option value="13">Option Thirteen</option>
                     <option value="14">Option Fourteen</option>
                     <option value="15">Option Fifteen</option>
@@ -254,6 +256,20 @@
                 </select>
                 <sd-select data-select="lots"></sd-select>
             </p>
+            <h3>Support for &lt;optgroup&gt; tag</h3>
+            <select id="optgroup">
+                <optgroup label="Cars">
+                    <option value='1'>Ford</option>
+                    <option value="2">Chevrolet</option>
+                    <option value="3">Subaru</option>
+                </optgroup>
+                <optgroup label="Foods">
+                    <option value="1">Pizza</option>
+                    <option value="2">Chicken</option>
+                    <option value="3">Salads</option>
+                </optgroup>
+            </select>
+            <sd-select data-select="optgroup"></sd-select>
             <h2 id="checkrad">Checkboxes and Radio</h2>
             <p>
                 <input type="checkbox" name="exone" />

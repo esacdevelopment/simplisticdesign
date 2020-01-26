@@ -49,7 +49,6 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
 /* Begin Navigation Bar Styles */
 .sd-nav {
   height: 75px;
-  max-height: 75px;
   background: #fff;
   display: block;
   z-index: 10000;
@@ -80,7 +79,7 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
   background: transparent;
   color: #555;
   border: none;
-  min-width: 7vw;
+  min-width: 1vw;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -97,21 +96,6 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
 }
 .sd-nav button:active {
   background: rgba(0, 0, 0, 0.1);
-}
-.sd-nav button.sd-show-options {
-  height: 100%;
-  width: 30%;
-  border: none;
-  outline: none;
-  opacity: 1;
-  float: right;
-  font-family: 'Roboto', sans-serif;
-  display: none;
-  background: transparent;
-  padding: 0px;
-}
-.sd-nav button.sd-show-options i {
-  transition: all 0.2s ease;
 }
 /* Customize navbar for mobile or small devices */
 @media screen and (max-width: 720px) {
@@ -139,9 +123,6 @@ body.sd-dark-theme *::-webkit-scrollbar-thumb {
   }
   .wrapper[data-hasaside=true] article {
     width: auto!important;
-  }
-  .sd-show-side-nav {
-    display: none!important;
   }
 }
 /* Search Bar */
@@ -407,7 +388,7 @@ footer.sd-footer {
   padding: 8px;
   font-family: 'Roboto', sans-serif;
   word-wrap: break-word;
-  width: calc(84%);
+  width: calc(100% - 16px);
 }
 body.sd-dark-theme footer.sd-footer {
   color: #eee;
@@ -506,12 +487,16 @@ body.sd-dark-theme .sd-nav.js-nav-open a {
 }
 /* Side Nav Mobile Styles */
 @media screen and (max-width: 720px) {
-  .sd-side-nav a.sd-co {
-    display: none;
-  }
   .sd-side-nav button {
-    width: 100vw;
+    width: 85vw;
+    background: #fff;
     font-size: 4.5vw;
+  }
+  .sd-side-nav {
+    width: 85vw;
+  }
+  .sd-side-nav .sd-nav-co {
+    background: #fff;
   }
 }
 /* Side nav search container and input */
@@ -585,15 +570,14 @@ body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
   .sd-side-nav div.sd-side-nav-menu {
     background: #ccc;
   }
-  .sd-side-nav {
-    background: #eee!important;
-    left: -150vw;
-  }
   body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
     background: #333;
   }
   body.sd-dark-theme .sd-side-nav {
     background: #444!important;
+  }
+  .sd-side-nav button.hide-side-nav {
+    display: block;
   }
 }
 /* This marks the beginning of the styles for the rest of the elements (not a structure element like navigation) */
@@ -796,9 +780,7 @@ body.sd-dark-theme .sd-dialog-message {
 }
 .sd-button.sd-button-accent .sd-js-ripple {
   background: #ff69b4;
-}
-.sd-button.sd-button-ripple:not(.sd-button-raised):active {
-  background: transparent;
+  opacity: 0.4;
 }
 .sd-button.sd-button-primary .sd-js-ripple {
   background: #2c67e3;
@@ -1147,7 +1129,7 @@ body.sd-dark-theme sd-radio sd-radio-circle {
   font-family: 'Raleway', serif;
   position: fixed;
   bottom: -50px;
-  animation: 20s showmsg ease;
+  animation: 5s showmsg ease;
   text-align: center;
 }
 @keyframes showmsg {
@@ -1166,4 +1148,88 @@ body.sd-dark-theme sd-radio sd-radio-circle {
 }
 .sd-message a {
   color: #ddd;
+}
+.sd-side-nav button.hide-side-nav {
+  position: absolute;
+  left: 0;
+  top: 22px;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  padding: 0px; 
+  outline: none;
+  cursor: pointer;
+  z-index: 1000000;
+  border-radius: 50%;
+  text-align: right;
+  color: #333;
+  display: none;
+  padding: 0px;
+}
+/* Navigation bar expand button */
+.sd-expand-nav {
+  position: fixed;
+  float: right;
+  right: 0;
+  top: 0;
+  height: 75px!important;
+  background: transparent;
+  border: none;
+  width: 75px;
+  border-radius: 50%;
+  color: #333;
+  cursor: pointer;
+  display: none;
+  z-index: 10000000000;
+}
+.sd-nav.transparent .sd-expand-nav {
+  color: #fff;
+}
+@media only screen and (max-width: 720px) {
+  .sd-expand-nav {
+    display: block;
+  }
+  .sd-nav-co {
+    margin: 0!important;
+    width: fit-content;
+  }
+}
+/* Mobile Navigation bar open styles */
+@media only screen and (max-width: 720px) {
+  .sd-nav.sd-js-nav-open {
+    height: 150px!important;
+  }
+  .sd-nav.sd-js-nav-open button:not(.sd-show-side-nav):not(.sd-expand-nav) {
+    top: 0px;
+    height: 75px;
+  }
+  .sd-nav.sd-js-nav-open .sd-nav-button-container {
+    display: block;
+    height: 75px;
+    width: 100vw;
+    overflow-x: auto;
+    position: relative;
+    white-space: nowrap;
+    overflow-y: hidden;
+  }
+  .sd-nav .sd-nav-button-container::-webkit-scrollbar {
+    width: 0!important;
+    height: 1px;
+  }
+}
+.sd-nav .sd-expand-nav i {
+  transition: all 0.2s ease;
+}
+/* Adding optgroup tag support for select elements */
+sd-opts div.sd-optgroup {
+  color: #777;
+  font-family: 'Roboto';
+  font-weight: 500;
+  display: inline-block;
+  user-select: none;
+  cursor: default;
+  width: 100%;
+  line-height: 41px;
+  min-height: 41px;
+  text-indent: 6px;
 }

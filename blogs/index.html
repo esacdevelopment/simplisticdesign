@@ -106,27 +106,67 @@
 <body>
     <nav class="sd-nav show-header">
         <a class="sd-nav-co" href="../index.html">Simplistic Blogs</a>
-        <button data-url="../index.html" data-icon="home">
-            Home
-        </button><button data-url="../download.html" data-icon="download">
-            Download
-        </button><button data-url="../about.html" data-icon="info">
-            About
-        </button><button data-url="../creator.html" data-icon="user">
-            Creator
-        </button><button data-icon="phone" data-url="../contact.html">
-            Contact
-        </button><button data-url="../examples.html" data-icon="ellipsis-h">
-            Examples
-        </button><button data-url="../faq.html" data-icon="question">
-            FAQ
-        </button><button data-url="blogs/index.html" data-icon="external-link" disabled>
-            Blogs
-        </button>
+        <span class="sd-nav-button-container">
+            <button data-url="../index.html" data-icon="home">
+                Home
+            </button><button data-url="../download.html" data-icon="download">
+                Download
+            </button><button data-url="../about.html" data-icon="info">
+                About
+            </button><button data-url="../creator.html" data-icon="user">
+                Creator
+            </button><button data-icon="phone" data-url="../contact.html">
+                Contact
+            </button><button data-url="../examples.html" data-icon="ellipsis-h">
+                Examples
+            </button><button data-url="../faq.html" data-icon="question">
+                FAQ
+            </button><button data-url="blogs/index.html" data-icon="external-link" disabled>
+                Blogs
+            </button>
+        </span>
     </nav>
     <header class="sd-page-header">
         Simplistic Blogs
     </header>
+    <div class="post">
+        <div class="post-header"><img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" />
+            <div class="posted-by">Isaac Maddox</div>
+            <div class="posted-at">1/26/2020</div>
+        </div>
+        <h2>Version 1.1 is here!</h2>
+        <div class="post-message">Hello folks. After a long wait, I have finally finished up and polished up Simplistic
+            Design version 1.1. I am still currently working on the syntax page; there's a lot to do there! :D Please
+            keep in mind that this version of Simplistic Design does not support changing the view from desktop to
+            mobile (or vice versa) within a browser. If you wish to do this, please refresh the page once you change it.
+            Here is a list of changes in this version:
+
+            <ul>
+                <li>Optgroup support</li>
+                <ul type="circle">
+                    <li>
+                        In previous versions, the select tag did not support &lt;optgroup&gt; tags, but now
+                        it does, This gives you the ability to section off your select values (options)
+                    </li>
+                </ul>
+                <li>Better mobile navigation</li>
+                <ul type="circle">
+                    <li>
+                        The side navigation bar is now accessible through a hamburger menu icon (as it is in desktop),
+                        and to access the buttons for the navigation bar, ther is a button on the right side of the
+                        navigation bar that has a downwards facing arrow that allows users to show the buttons that are
+                        in the navigation bar.
+                    </li>
+                    <li>
+                        Please keep in mind that this change requires a change to all navigation bars: a &lt;span&gt;
+                        tag with the class <code>sd-nav-button-container</code> must be added to all navigation bars,
+                        surrounding the buttons, as the class name suggests.
+                    </li>
+                </ul>
+            </ul>
+
+            I hope that you enjoy this update and find it easy to use!</div>
+    </div>
     <div class="post">
         <div class="post-header"><img src="../images/blog_profile.jpg" class="post-img" height="50" width="50" />
             <div class="posted-by">Isaac Maddox</div>

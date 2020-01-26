@@ -17,91 +17,100 @@
     <style>
         .sd-page-header {
             background: url('../images/sectionheader.png');
-            background-position-x: center;
-        }
-
-        code {
-            padding: 8px;
-            background: #fbfbfb;
-            overflow-x: hidden;
-            word-wrap: break-word;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            display: block;
-            width: fit-content;
-            border-radius: 5px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        body.sd-dark-theme code {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
-        }
-
-        table.classes tr,
-        table.classes th {
-            padding: 6px;
-        }
-
-        table.classes th {
-            color: #333;
-            font-family: 'Raleway', serif;
-            border-left: 2px solid #2c67e3;
-        }
-
-        table.classes tr td {
-            text-align: center;
-        }
-
-        table.classes {
-            background: #2c67e333;
-            padding: 8px;
-            border-radius: 5px;
-            min-width: 25vw;
-            box-shadow: 2px 2px 5px #2c67e322;
-            color: #2c67e3;
-        }
-
-        table.classes code {
-            color: #333;
+            background-size: cover;
         }
 
         .sd-section-header {
-            background-image: url('../images/blog_profile.jpg') !important;
+            background: url('../images/nothing.jpg') !important;
             background-size: cover !important;
             background-attachment: fixed !important;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            padding: 3px;
+            border-radius: 2px;
+            cursor: default;
+            display: inline-block;
+            word-wrap: break-word;
+            width: fit-content;
+            transition: all 0.2s ease;
+        }
+
+        code:hover {
+            box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.15);
+        }
+
+        code span.highlight {
+            font-family: inherit;
+            font-size: inherit;
+            background: #2c67e333;
+            font-style: italic;
+            color: #2c67e3;
+        }
+
+        #lay_head {
+            background: url('../images/layout.png') !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+            background-size: 91vh !important;
         }
     </style>
 </head>
 
 <body>
     <div class="sd-side-nav">
-        <a class="sd-co">Scroll To...</a>
-        <button data-menu="navtypes">Navigation</button>
-        <div class="sd-side-nav-menu" id="navtypes">
-            <button data-url="#topnav">Top Nav</button>
-            <button data-url="#sidenav">Side Nav</button>
-        </div>
-        <button data-menu="layout">Layout</button>
-        <div class="sd-side-nav-menu" id="layout">
-            <button data-url="#pageheader">Page Header</button>
-            <button data-url="#secheader">Section Header</button>
-            <button data-url="#aside">Aside</button>
-        </div>
+        <a class="sd-co">Navigate To...</a>
+        <button data-url="#basic">Basics</button>
     </div>
     <nav class="sd-nav show-header">
-        <button class="sd-show-side-nav"><i class="fa fa-chevron-right"></i></button>
-        <a class="sd-nav-co" href="index.html">Simplistic Design Syntax</a>
+        <button class="sd-show-side-nav">
+            <i class="fa fa-search"></i>
+        </button>
+        <span class="sd-nav-button-container">
+            <a class="sd-nav-co">Simplistic Design Syntax</a>
+        </span>
     </nav>
     <header class="sd-page-header">
         Simplistic Design Syntax
     </header>
     <div class="wrapper">
         <article>
-            <h2 class="sd-highlight">This page is currently under construction.</h2>
+            <div class="sd-section-header">Basics</div>
+            <h2 id="basic">How to use</h2>
             <p>
-                However, Simplistic Design version 1 <strong>IS HERE!</strong> You can download it <a
-                    href="../download.html">here</a>.
+                In order to use Simplistic Design, you must include the following code in the <code>&lt;head&gt;</code>
+                tag of your HTML:
+            </p>
+            <p>
+                <code>
+                    &lt;script src="https://code.jquery.com/jquery-2.1.0.js"&gt;&lt;/script&gt;<br/>
+                    &lt;script src="<span class='highlight'>location of script file</span>"&gt;&lt;/script&gt;<br/>
+                    &lt;link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"&gt;
+                </code>
+            </p>
+            <div class="sd-section-header" id="lay_head">
+                Layout
+            </div>
+            <h2 id="layout_bas">Layout Basics</h2>
+            <p>
+                In Simplistic Design, a basic layout guideline is followed: no two elements can occupy the <em>exact
+                    same</em> space at the same time. This simply means that if two elements are on the same z-index,
+                they cannot occupy the same space at the same time. For example, the aside and the article do not
+                overlap, neither do the headers. Elements may overlap if they are on a different level. For example, the
+                dialog box can be in the same visual space as the article, but they are not defying the laws of physics
+                and occupying the exact same space at the exact same time.
+            </p>
+            <h2 id="layout_nav">Navigation Layout</h2>
+            <p>
+                As far as navigation goes in Simplistic Design, there is not much as far as "rules" go. All that is
+                required is that the side navigation bar is on a higher z-index than the main navigation bar.
+            </p>
+            <p>
+                As you might be able to tell, there are two basic types of navigation: the main navigation bar and the
+                side navigation bar. You can read more about these in their respectful sections.
             </p>
         </article>
     </div>

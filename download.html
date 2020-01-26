@@ -23,23 +23,25 @@
 <body>
     <nav class="sd-nav show-header">
         <a class="sd-nav-co" href="index.html">Simplistic Design</a>
-        <button data-url="index.html" data-icon="home">
-            Home
-        </button><button data-url="download.html" data-icon="download" disabled>
-            Download
-        </button><button data-url="about.html" data-icon="info">
-            About
-        </button><button data-url="creator.html" data-icon="user">
-            Creator
-        </button><button data-icon="phone" data-url="contact.html">
-            Contact
-        </button><button data-url="examples.html" data-icon="ellipsis-h">
-            Examples
-        </button><button data-url="faq.html" data-icon="question">
-            FAQ
-        </button><button data-url="blogs/index.html" data-icon="external-link">
-            Blogs
-        </button>
+        <span class="sd-nav-button-container">
+            <button data-url="index.html" data-icon="home">
+                Home
+            </button><button data-url="download.html" data-icon="download" disabled>
+                Download
+            </button><button data-url="about.html" data-icon="info">
+                About
+            </button><button data-url="creator.html" data-icon="user">
+                Creator
+            </button><button data-icon="phone" data-url="contact.html">
+                Contact
+            </button><button data-url="examples.html" data-icon="ellipsis-h">
+                Examples
+            </button><button data-url="faq.html" data-icon="question">
+                FAQ
+            </button><button data-url="blogs/index.html" data-icon="external-link">
+                Blogs
+            </button>
+        </span>
     </nav>
     <header class="sd-page-header">
         Download Simplistic Design
@@ -64,12 +66,10 @@
             </p>
             <h3>The Link and URLs:</h3>
             <p>
-                <a href="downloads/sd_v1.zip" download="sd_v1">Download</a><br /><br />
-                You can also link the files from the web. <strong>Note:</strong> these files <u>will</u> change. There
-                is no way around this. Sorry for any inconvinience. I will eventually make separate files for each
-                release, starting with 1.0.<br />
-                <code>https://esacdevelopment.github.io/simplisticdesign/downloads/styles_min.css<br/>
-                https://esacdevelopment.github.io/simplisticdesign/scripts_min.js</code>
+                <a href="downloads/sd_v1.zip" download="sd_v1">Download v1.0</a><br />
+                <a href="downloads/sd_v1.1.zip" download="sd_v1.1">Download v1.1</a><br /><br />
+                <strong>Sorry for any inconvienience</strong>, for simplicity and file size's sake, I have removed the
+                ability for a direct internet link to access simplistic design.
             </p>
             <h2>
                 How to get Simplistic Design Running
@@ -80,8 +80,8 @@
             <p>
                 <code>
                     &lt;script src="https://code.jquery.com/jquery-2.1.0.js"&gt;&lt;/script&gt;<br/>
-                    &lt;script src="{<em>location of folder</em>/scripts_min.js"&gt;&lt;/script&gt;<br/>
-                    &lt;link rel="stylesheet" href="{<em>location of folder</em>}/styles_min.css"&gt;<br/>
+                    &lt;script src="{location of folder/scripts_min.js"&gt;&lt;/script&gt;<br/>
+                    &lt;link rel="stylesheet" href="{location of folder}/styles_min.css"&gt;<br/>
                     &lt;link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
                         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"&gt;
                 </code>

@@ -3,5 +3,5 @@ $(document).ready(function () {
 })
 
 $(document).ready(function () {
-  $("body").append('<div class="sd-message">Simplistic Design v1.0 is here! <a href="download.html">Download it here</a>').css('margin-bottom', '25px');
+  $("body").append('<div class="sd-message">Simplistic Design v1.1 is here! <a href="download.html">Download it here</a>').css('margin-bottom', '25px');
 });

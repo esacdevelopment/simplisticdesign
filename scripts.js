@@ -18,6 +18,10 @@ $(document).ready(function () {
                 console.error("SD Error: Select options do not support the ripple effect as of now");
             }
         });
+        if ($(".sd-nav button").length && !$(".sd-expand-nav").length) {
+            console.warn("SD Error: No button.sd-expand-nav in page. One was added automatically.");
+            $(".sd-nav").prepend("<button class='sd-expand-nav'><i class='fa fa-chevron-down fa-lg'></i></button>");
+        }
     });
 });
 $(document).ready(function () {
@@ -29,6 +33,11 @@ $(document).ready(function () {
     } else {
         $(".sd-nav.show-header").addClass('transparent');
     }
+    var beginningbuttoncount;
+    $(".sd-nav button:not(.sd-show-side-nav):not(.sd-expand-nav)").each(function () {
+        beginningbuttoncount++;
+    });
+    $(".sd-nav button:not(.sd-show-side-nav):not(.sd-expand-nav)").css('width', 'calc(100vw / ' + beginningbuttoncount + ')');
 });
 $(document).scroll(function (e) {
     // Determine the navbar's background:
@@ -52,68 +61,6 @@ $(document).on('click', '.sd-nav button', function () {
     }
 });
 var buttonshow = false;
-$(document).ready(function () {
-    $(".sd-nav").prepend('<button class="sd-show-options"><i class="fa fa-chevron-down"></i></button>');
-}).on('click', '.sd-show-options', function () {
-    var buttoncount = 0;
-    // $(".sd-nav-co").fadeOut(100);
-    $(".sd-nav button, .sd-nav a.sd-nav-co").css('height', '50%');
-    $(".sd-nav a.sd-nav-co").css('line-height', '12.5vh');
-    $(".sd-nav").css('max-height', '25vh').css('height', '25vh').addClass('js-nav-open').children('.sd-show-options').css('height', '50%');
-    $(".sd-nav button").css('display', 'inline-block');
-    if (buttonshow === false) {
-        showsidebarmobile();
-        $(".sd-nav button:not(.sd-show-options):not(.sd-show-side-nav)").each(function () {
-            buttoncount++;
-            $(this).data('originaltext', $(this).html());
-            if (!$(this).hasClass("sd-show-options")) {
-                $(this).html("<i class='fa fa-" + $(this).data('icon') + "'></i>");
-            }
-        });
-        buttonshow = true;
-        $(".sd-nav button.sd-show-options i").css('transform', 'rotate(180deg)');
-        $(".sd-nav button:not(.sd-show-options)").css('width', 'calc(97vw / ' + buttoncount + '');
-    } else {
-        if ($(".sd-side-nav").length) {
-            hidesidebarmobile();
-            function waitasec() {
-                $(".sd-nav a.sd-nav-co").css('line-height', '10vh');
-                $(".sd-nav").css('max-height', '10vh').css('height', '10vh').removeClass('js-nav-open').children('button').css('height', '100%');
-                $(".sd-nav button:not(.sd-show-options)").css('display', 'none');
-                $(".sd-nav .sd-nav-co").fadeIn(100);
-                $(".sd-nav button.sd-show-options i").css('transform', 'rotate(0deg)');
-                $(".sd-nav button:not(.sd-show-options)").each(function () {
-                    $(this).html($(this).data('originaltext'));
-                    buttonshow = false;
-                });
-                $(".sd-nav button.sd-show-options").css('width', '30%').css('height', '100%');
-            }
-            setTimeout(waitasec, 300);
-        } else {
-            $(".sd-nav a.sd-nav-co").css('line-height', '10vh');
-            $(".sd-nav").css('max-height', '10vh').css('height', '10vh').removeClass('js-nav-open').children('button').css('height', '100%');
-            $(".sd-nav button:not(.sd-show-options)").css('display', 'none');
-            $(".sd-nav .sd-nav-co").fadeIn(100);
-            $(".sd-nav button.sd-show-options i").css('transform', 'rotate(0deg)');
-            $(".sd-nav button:not(.sd-show-options)").each(function () {
-                $(this).html($(this).data('originaltext'));
-                buttonshow = false;
-            });
-            $(".sd-nav button.sd-show-options").css('width', '30%').css('height', '100%');
-        }
-    }
-    $(".sd-nav").css('width', '100%');
-});
-$(window).resize(function () {
-    var size = parseInt($("body").css('width'));
-    if (size > 720) {
-        $(".sd-nav button:not(.sd-show-side-nav)").css('display', 'inline-block').css('width', 'auto');
-        $(".sd-nav button.sd-show-options").fadeOut(1);
-    } else {
-        $(".sd-nav button:not(.sd-show-side-nav)").css('display', 'none');
-        $(".sd-nav button.sd-show-options").fadeIn(100);
-    }
-});
 // Side Nav for desktop
 $(document).on('click', '.sd-nav button.sd-show-side-nav', function () {
     $(".sd-side-nav").css('left', '0');
@@ -123,29 +70,6 @@ $(document).on('click', '.sd-nav button.sd-show-side-nav', function () {
     }
     $("body > .sd-side-nav").css('filter', 'none');
 });
-function showsidebarmobile() {
-    $(".sd-side-nav").css('width', '100vw')
-        .css('height', '75vh')
-        .css('top', '25vh')
-        .css('z-index', '9999')
-    function iminside() {
-        $(".sd-side-nav").css('left', '0vw');
-    }
-    setTimeout(iminside, 200);
-}
-function hidesidebarmobile() {
-    $(".sd-side-nav").css('top', '-102vh');
-    function waitformetohide() {
-        $(".sd-side-nav").css('left', '-100vw')
-            .css('height', '100vh')
-            .css('z-index', '100000');
-    }
-    setTimeout(waitformetohide, 300);
-    function manthisisialotoffuncctions() {
-        $('.sd-side-nav').css('top', '0');
-    }
-    setTimeout(manthisisialotoffuncctions, 600);
-}
 // The scripts so far have been for the main page for Simplistic Design, not for all the elements. This marks the beginning of the section for all the elements on the "examples.html" page
 // Side Nav Dropdown menu
 $(document).ready(function () {
@@ -301,7 +225,7 @@ $(document).on('click', 'sd-select', function () {
     var menu = $("sd-opts#opts_" + $(this).data('select'));
     if (menu.length) {
         $(this).addClass('sd-js-menuopen');
-        menu.children("button").each(function () {
+        menu.children("button, div").each(function () {
             btncnt++;
             if ($(this).hasClass('opt-selected')) {
                 off = btncnt - 1;
@@ -340,10 +264,34 @@ $(document).ready(function () {
     $("sd-select").each(function () {
         var id = $(this).data('select'); // cars
         $("body").append('<sd-opts id="opts_' + id + '"></sd-opts>'); // add custom sd-opts element
+        $("select#" + id).children('optgroup').each(function () {
+            var optgrouplabel = $(this).attr("label");
+            $("sd-opts#opts_" + id).append("<div class='sd-optgroup'>" + optgrouplabel + "</div>");
+            $(this).children("option").each(function () {
+                var val = $(this).attr('value'); // get the value of the select option
+                $(this).data('optgroupchild', "true");
+                $("sd-opts#opts_" + id).append('<button data-value="' + val + '">' + $(this).html() + '</button>'); // add the button to the custom opts element'
+                if ($(this).is(":selected")) {
+                    $("sd-opts#opts_" + id).children('button[data-value=' + val + ']').addClass('opt-selected');
+                }
+            });
+        });
+        $("select#" + id).css('display', 'none');
         $("select#" + id + " option").each(function () { // for each option in the actual select, 
-            $(this).parent().css('display', 'none'); // Hide the select element
-            var val = $(this).attr('value'); // get the value of the select option
-            $("sd-opts#opts_" + id).append('<button data-value="' + val + '">' + $(this).html() + '</button>'); // add the button to the custom opts element
+            if ($(this).data('optgroupchild')) {
+
+            } else {
+                $(this).parent().css('display', 'none'); // Hide the select element
+                var selected = false;
+                if ($(this).is(":selected")) {
+                    selected = true;
+                }
+                var val = $(this).attr('value'); // get the value of the select option
+                $("sd-opts#opts_" + id).append('<button data-value="' + val + '">' + $(this).html() + '</button>'); // add the button to the custom opts element'
+                if (selected === true) {
+                    $("sd-opts#opts_" + id).children('button[data-value=' + val + ']').addClass('opt-selected');
+                }
+            }
         });
     });
 });
@@ -487,4 +435,46 @@ $(document).on('click', 'button i.fa, sd-select i', function () {
     $(this).parent().click();
 }).on('click', '.sd-side-nav button span i', function () {
     $(this).parent().parent().click();
+}).ready(function () {
+    if ($("body").width() < 721) {
+        if (!$(".sd-show-side-nav").length) {
+            var brandsize = $(".sd-nav-co").width();
+            $(".sd-nav-co").css('padding-left', 'calc(50% - ' + brandsize / 2 + 'px)');
+        }
+    }
+});
+// Fixing the side nav and nav for mobile.
+$(document).ready(function () {
+    var windowwidth = parseInt($('body').width());
+    if (windowwidth < 721) {
+        $('.sd-show-options').css('display', 'block');
+        if ($('.sd-side-nav').length && !$('.sd-side-nav button.hide-side-nav').length) {
+            $(".sd-side-nav").prepend('<button class="hide-side-nav"><i class="fa fa-chevron-left"><i></button>');
+            $(".sd-side-nav button.hide-side-nav").css('display', 'block');
+        }
+    }
+}).on('click', '.hide-side-nav', function () {
+    $('.sd-side-nav').css('left', '-100%');
+    $("body > *").css('filter', 'blur(0px) grayscale(0%)');
+}).on('click', '.sd-expand-nav', function () {
+    if ($(".sd-nav").hasClass('sd-js-nav-open')) {
+        $(".sd-nav").removeClass('sd-js-nav-open');
+        $(".sd-expand-nav i").css("transform", 'rotate(0deg)');
+    } else {
+        $(".sd-nav").addClass('sd-js-nav-open');
+        $(".sd-expand-nav i").css('transform', 'rotate(180deg)');
+        totalbuttoncount = 0;
+        $('.sd-nav button:not(.sd-show-side-nav):not(.sd-expand-nav)').each(function () {
+            totalbuttoncount++;
+            var ic = $(this).data('icon');
+            $(this).html('<i class="fa fa-' + ic + '"></i>');
+        });
+        if ($("body").width() < 721) {
+            if (totalbuttoncount >= 10) {
+                $('.sd-nav button:not(.sd-show-side-nav):not(.sd-expand-nav)').css('width', 'calc(10vw)').css('padding', '0');
+            } else {
+                $(".sd-nav button:not(.sd-show-side-nav):not(.sd-expand-nav)").css('width', 'calc(100vw / ' + totalbuttoncount + ')');
+            }
+        }
+    }
 });
