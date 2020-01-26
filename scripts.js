@@ -439,7 +439,7 @@ $(document).on('click', 'button i.fa, sd-select i', function () {
     if ($("body").width() < 721) {
         if (!$(".sd-show-side-nav").length) {
             var brandsize = $(".sd-nav-co").width();
-            $(".sd-nav-co").css('padding-left', 'calc(50% - ' + brandsize / 2 + 'px)');
+            $(".sd-nav-co").css('padding-left', 'calc(50% - ' + brandsize / 2 + 'px)').css('padding-right', '0px');
         }
     }
 });
