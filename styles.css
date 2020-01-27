@@ -1222,8 +1222,8 @@ body.sd-dark-theme sd-radio sd-radio-circle {
 }
 /* Adding optgroup tag support for select elements */
 sd-opts div.sd-optgroup {
-  color: #777;
-  font-family: 'Roboto';
+  color: #888;
+  font-family: 'Raleway', serif;
   font-weight: 500;
   display: inline-block;
   user-select: none;
