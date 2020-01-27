@@ -1215,6 +1215,9 @@ body.sd-dark-theme sd-radio sd-radio-circle {
     white-space: nowrap;
     overflow-y: hidden;
   }
+  .sd-nav:not(.sd-js-nav-open) .sd-nav-button-container {
+    display: none;
+  }
   .sd-nav .sd-nav-button-container::-webkit-scrollbar {
     width: 0!important;
     height: 1px;
