@@ -529,6 +529,7 @@ body.sd-dark-theme .sd-side-nav {
 }
 body.sd-dark-theme .sd-side-nav button {
   color: #eee;
+  background: #444;
 }
 body.sd-dark-theme .sd-side-nav .sd-nav-search-wrapper input {
   background: #666;
