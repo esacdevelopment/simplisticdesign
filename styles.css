@@ -567,6 +567,9 @@ body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu {
   background: #555;
   border-left: 4px solid #20add8aa;
 }
+body.sd-dark-theme .sd-side-nav div.sd-side-nav-menu button {
+  background: #555;
+}
 @media screen and (max-width: 720px) {
   .sd-side-nav div.sd-side-nav-menu {
     background: #ccc;
