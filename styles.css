@@ -1212,7 +1212,6 @@ body.sd-dark-theme sd-radio sd-radio-circle {
     height: 75px;
     width: 100vw;
     overflow-x: auto;
-    position: relative;
     white-space: nowrap;
     overflow-y: hidden;
   }
